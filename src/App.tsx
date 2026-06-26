@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Terminal, Database, Activity, Sparkles, AlertCircle, Info, ShieldAlert } from 'lucide-react';
+import { Terminal, Database, Activity, Sparkles, AlertCircle, Info, ShieldAlert, ArrowUp } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { FunnelMode, DiagnosticResult, Reservation, AnalyticsEvent } from './types';
 import SimulatorControlBar from './components/SimulatorControlBar';
 import Header from './components/Header';
@@ -32,9 +33,28 @@ export default function App() {
   const [events, setEvents] = useState<AnalyticsEvent[]>([]);
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [activeReservation, setActiveReservation] = useState<Reservation | null>(null);
+  const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
 
   // Scroll references
   const reservationFormRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to Top Listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    triggerEvent('scroll_to_top_clicked', {});
+  };
 
   // Log events helper
   const triggerEvent = (name: string, metadata: Record<string, any>) => {
@@ -200,6 +220,26 @@ export default function App() {
         />
 
       </main>
+
+      {/* Floating Back to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            initial={{ opacity: 0, scale: 0.6, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.6, y: 30 }}
+            whileHover={{ scale: 1.1, y: -4 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            className="fixed bottom-6 right-6 z-50 flex items-center justify-center h-12 w-12 rounded-full shadow-[0_10px_35px_rgba(0,191,239,0.35)] bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] text-white border border-[#00BFEF]/30 cursor-pointer focus:outline-none"
+            title="Back to Top"
+            id="back-to-top-btn"
+          >
+            <ArrowUp className="h-5 w-5 stroke-[2.5]" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

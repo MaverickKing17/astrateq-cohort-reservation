@@ -68,17 +68,19 @@
   animation: fadeInUp 0.4s ease-out forwards;
 }
 
-/* Scroll styling for light theme */
+/* Scroll styling for light theme - standing out against the background */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5F9FC;
+  background: #EEF6FB;
+  border-left: 1px solid #CFE0EF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CFE0EF;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #00BFEF 0%, #0B7CFF 100%);
+  border-radius: 9999px;
+  border: 3px solid #EEF6FB;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00BFEF;
+  background: linear-gradient(180deg, #13C8F7 0%, #0B7CFF 100%);
 }
