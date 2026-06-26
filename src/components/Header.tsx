@@ -12,7 +12,10 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-900/50 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full bg-slate-950/95 backdrop-blur-md border-b border-cyan-500/30 shadow-lg shadow-cyan-950/30">
+      {/* Top colorful gradient accent line to make the header pop on scroll */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-500" />
+      
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo and Tagline */}
         <div 
