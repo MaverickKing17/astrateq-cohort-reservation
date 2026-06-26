@@ -157,20 +157,26 @@ export default function TierSelection({
               <div
                 key={tier.id}
                 onClick={() => handleTierSelect(tier)}
-                className={`relative flex flex-col justify-between rounded-2xl border-2 p-6 cursor-pointer transition-all duration-300 group ${
+                className={`relative flex flex-col justify-between rounded-3xl border-2 p-7 cursor-pointer transition-all duration-300 group ${
                   isSelected
-                    ? 'border-[#0B7CFF] bg-[#EEF6FB] shadow-lg shadow-blue-500/5'
+                    ? 'border-[#00BFEF] bg-gradient-to-b from-[#F3F9FF] to-[#EAF8FF] shadow-[0_20px_60px_rgba(0,191,239,0.18)] scale-[1.01]'
                     : isRecommended
-                    ? 'border-[#00BFEF] bg-[#F8FCFF] shadow-md shadow-blue-500/5 hover:border-[#0B7CFF]/50'
-                    : 'border-[#D7E7F5] bg-white hover:border-[#0B7CFF]/40 shadow-sm'
+                    ? 'border-[#A9D8F5] bg-gradient-to-b from-white to-[#F8FBFF] shadow-[0_10px_28px_rgba(8,26,51,0.07)] hover:border-[#00BFEF] hover:shadow-[0_18px_45px_rgba(8,26,51,0.12)] hover:translate-y-[-2px]'
+                    : 'border-[#CFE0EF] bg-white shadow-[0_10px_28px_rgba(8,26,51,0.07)] hover:border-[#A9D8F5] hover:shadow-[0_18px_45px_rgba(8,26,51,0.12)] hover:translate-y-[-2px]'
                 }`}
                 id={`tier-selection-${tier.id}`}
               >
-                {/* Recommended Badge */}
+                {/* Recommended / Selected Badge */}
                 {isRecommended && (
-                  <span className="absolute -top-3.5 left-6 inline-flex items-center space-x-1 rounded-full bg-[#0B7CFF] border border-blue-600 px-3 py-0.5 text-[9px] font-extrabold text-white tracking-widest uppercase">
+                  <span className="absolute -top-3.5 left-6 inline-flex items-center space-x-1 rounded-full bg-[#0B7CFF] border border-blue-600 px-3 py-1 text-[9px] font-extrabold text-white tracking-widest uppercase shadow-sm">
                     <Sparkles className="h-2.5 w-2.5 animate-pulse text-white" />
-                    <span>Recommended Cohort Path</span>
+                    <span>Recommended Path</span>
+                  </span>
+                )}
+
+                {isSelected && !isRecommended && (
+                  <span className="absolute -top-3.5 left-6 inline-flex items-center space-x-1 rounded-full bg-[#00BFEF] border border-cyan-500 px-3 py-1 text-[9px] font-extrabold text-white tracking-widest uppercase shadow-sm">
+                    <span>Selected Pathway</span>
                   </span>
                 )}
 
@@ -190,20 +196,24 @@ export default function TierSelection({
                       </p>
                     </div>
                     {/* Circle selector */}
-                    <div className={`h-5 w-5 rounded-full border flex items-center justify-center transition-all ${
+                    <div className={`h-6 w-6 rounded-full border flex items-center justify-center transition-all ${
                       isSelected 
-                        ? 'border-[#0B7CFF] bg-[#0B7CFF] text-white' 
+                        ? 'border-[#00BFEF] bg-[#00BFEF] text-white shadow-xs' 
                         : isRecommended
-                        ? 'border-[#00BFEF] group-hover:border-[#0B7CFF] text-transparent'
-                        : 'border-[#D7E7F5] group-hover:border-[#7B8CA3] text-transparent'
+                        ? 'border-[#00BFEF] text-transparent'
+                        : 'border-[#CFE0EF] text-transparent'
                     }`}>
-                      {isSelected && <Check className="h-3 w-3 stroke-[3]" />}
+                      {isSelected ? (
+                        <Check className="h-3.5 w-3.5 stroke-[3.5]" />
+                      ) : (
+                        <span className="w-1.5 h-1.5 rounded-full bg-transparent group-hover:bg-[#CFE0EF]" />
+                      )}
                     </div>
                   </div>
 
                   {/* Pricing / Mode Description */}
                   <div className={`my-5 py-3 border-y flex items-baseline justify-between ${
-                    isSelected ? 'border-[#0B7CFF]/20' : 'border-[#D7E7F5]'
+                    isSelected ? 'border-[#0B7CFF]/20' : 'border-[#CFE0EF]'
                   }`}>
                     <div>
                       <span className="font-display text-2xl font-black text-[#081A33]">
@@ -230,7 +240,7 @@ export default function TierSelection({
                     <span className="text-[10px] font-bold text-[#7B8CA3] uppercase tracking-wider block">
                       Included Options
                     </span>
-                    <ul className="space-y-2 text-xs">
+                    <ul className="space-y-2.5 text-xs">
                       {tier.includes.map((inc, i) => (
                         <li key={i} className="flex items-start space-x-2 text-[#475A70]">
                           <Check className="h-4 w-4 text-[#16B981] shrink-0 mt-0.5" />
@@ -241,16 +251,17 @@ export default function TierSelection({
                   </div>
 
                   {/* Limits List (Pre-launch transparency) */}
-                  <div className={`space-y-2 border-t pt-4 ${
-                    isSelected ? 'border-[#0B7CFF]/20' : 'border-[#D7E7F5]'
+                  <div className={`space-y-3 border-t pt-5 ${
+                    isSelected ? 'border-[#0B7CFF]/20' : 'border-[#CFE0EF]'
                   }`}>
-                    <span className="text-[10px] font-bold text-[#7B8CA3] uppercase tracking-wider flex items-center gap-1">
-                      <AlertCircle className="h-3 w-3 text-[#F59E0B]" /> Note / Not Guaranteed
+                    <span className="text-[10px] font-bold text-[#F59E0B] uppercase tracking-wider flex items-center gap-1.5 bg-[#FFF7E6] px-2.5 py-1 rounded-md border border-[#FCD34D]/30 self-start">
+                      <AlertCircle className="h-3.5 w-3.5 text-[#F59E0B]" />
+                      <span>Not Guaranteed / pre-launch validation</span>
                     </span>
-                    <ul className="space-y-1.5 text-[11px] text-[#7B8CA3]">
+                    <ul className="space-y-1.5 text-[11px] text-[#7B8CA3] pl-1">
                       {tier.notGuaranteed.map((notg, i) => (
                         <li key={i} className="flex items-start space-x-1.5">
-                          <span className="text-[#D7E7F5] font-bold shrink-0">•</span>
+                          <span className="text-[#CFE0EF] font-bold shrink-0">•</span>
                           <span>{notg}</span>
                         </li>
                       ))}
@@ -262,12 +273,10 @@ export default function TierSelection({
                 <div className="mt-8">
                   <button
                     type="button"
-                    className={`w-full py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1 transition-all ${
+                    className={`w-full py-3.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-300 ${
                       isSelected
-                        ? 'bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] text-white shadow-md shadow-blue-500/15'
-                        : isRecommended
-                        ? 'bg-[#EEF6FB] hover:bg-[#EEF6FB]/80 text-[#0B7CFF] border border-[#D7E7F5]'
-                        : 'bg-white hover:bg-slate-50 text-[#475A70] border border-[#D7E7F5]'
+                        ? 'bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] text-white shadow-lg shadow-blue-500/20 scale-[1.01] hover:brightness-105 cursor-pointer'
+                        : 'bg-white hover:bg-[#F8FBFF] text-[#081A33] border border-[#CFE0EF] hover:border-[#00BFEF] hover:shadow-xs cursor-pointer'
                     }`}
                   >
                     <span>
@@ -277,7 +286,7 @@ export default function TierSelection({
                         ? 'Select Recommended Option' 
                         : `Select ${tier.name}`}
                     </span>
-                    <ChevronRight className="h-3.5 w-3.5" />
+                    <ChevronRight className={`h-4 w-4 transition-transform ${isSelected ? 'group-hover:translate-x-0.5' : ''}`} />
                   </button>
                 </div>
               </div>

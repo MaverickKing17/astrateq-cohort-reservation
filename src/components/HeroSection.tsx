@@ -123,19 +123,27 @@ export default function HeroSection({
 
           {/* Center Column: Diagnostic Carryover Summary Card */}
           <div className="lg:col-span-4 flex flex-col justify-stretch" id="hero-diagnostic-card">
-            <div className="flex flex-col justify-between h-full bg-white border border-[#D7E7F5] rounded-2xl p-6 shadow-xl shadow-slate-200/50 relative overflow-hidden group transition-all">
+            <div className="flex flex-col justify-between h-full bg-white card-premium-gradient border border-[#A9D8F5] rounded-3xl p-7 shadow-[0_18px_50px_rgba(8,26,51,0.10)] relative overflow-hidden group transition-all duration-300">
+              
+              {/* Decorative top accent line for premium look */}
+              <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7]" />
               
               {/* Header */}
               <div>
-                <div className="flex items-center justify-between mb-4 border-b border-[#D7E7F5] pb-4">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-[#081A33]">Readiness Result Summary</h3>
+                <div className="flex items-center justify-between mb-5 border-b border-[#D7E7F5] pb-4">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#16B981] animate-pulse" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#16B981] bg-[#EAFBF4] px-2.5 py-1 rounded-full border border-emerald-100/60">
+                      Readiness Verified
+                    </span>
+                  </div>
                   <span className={`px-2.5 py-1 text-[10px] font-black rounded uppercase shrink-0 transition-all duration-300 ${attributes.badgeColor}`}>
                     {attributes.confidence} Confidence
                   </span>
                 </div>
 
                 {/* Score Circular Visualizer */}
-                <div className="flex items-center justify-center py-5 border border-[#D7E7F5] mb-5 bg-[#F8FBFF] rounded-xl">
+                <div className="flex items-center justify-center py-6 border border-[#CFE0EF] mb-6 bg-gradient-to-r from-[#F8FBFF] to-[#F1F7FC] rounded-2xl shadow-xs">
                   <div className="relative flex items-center justify-center">
                     <svg className="h-20 w-20 transform -rotate-90">
                       {/* Grey background ring */}
@@ -143,7 +151,7 @@ export default function HeroSection({
                         cx="40"
                         cy="40"
                         r={radius}
-                        className="stroke-[#EEF6FB] fill-none"
+                        className="stroke-[#EAF2FA] fill-none"
                         strokeWidth="5"
                       />
                       {/* Active colored ring */}
@@ -165,7 +173,7 @@ export default function HeroSection({
                     </div>
                   </div>
                   <div className="ml-4 text-left">
-                    <span className="text-[9px] text-[#7B8CA3] font-mono tracking-wider uppercase block">Active Rating</span>
+                    <span className="text-[9px] text-[#7B8CA3] font-mono tracking-wider uppercase block font-bold">Active Rating</span>
                     <h3 className="font-display text-sm font-bold text-[#081A33] transition-colors duration-300">
                       {attributes.scoreLabel}
                     </h3>
@@ -176,14 +184,14 @@ export default function HeroSection({
                 </div>
 
                 {/* Parameters list */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-y-5 gap-x-4 mb-2">
                   <div className="space-y-1">
                     <p className="text-[10px] text-[#7B8CA3] uppercase font-bold tracking-wider">Readiness Score</p>
                     <p className="text-2xl font-mono font-bold text-[#081A33]">{score}/100</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] text-[#7B8CA3] uppercase font-bold tracking-wider">Recommended Cohort</p>
-                    <p className="text-xs font-semibold text-[#475A70] leading-tight mt-0.5">{attributes.recommendedTier}</p>
+                    <p className="text-xs font-bold text-[#081A33] leading-tight mt-0.5">{attributes.recommendedTier}</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] text-[#7B8CA3] uppercase font-bold tracking-wider">Risk Profile</p>
@@ -203,10 +211,10 @@ export default function HeroSection({
                 </p>
                 
                 {/* Visual Safeguard Badges */}
-                <div className="grid grid-cols-3 gap-1 mt-3 text-[8px] font-medium text-[#7B8CA3] tracking-tight text-center">
-                  <div className="px-1 py-1.5 rounded bg-[#F8FBFF] border border-[#D7E7F5]">No Guaranteed Acceptance</div>
-                  <div className="px-1 py-1.5 rounded bg-[#F8FBFF] border border-[#D7E7F5]">No Compatibility Guarantee</div>
-                  <div className="px-1 py-1.5 rounded bg-[#F8FBFF] border border-[#D7E7F5]">Hardware Not Guaranteed</div>
+                <div className="grid grid-cols-3 gap-1.5 mt-3 text-[8px] font-bold text-[#7B8CA3] tracking-tight text-center">
+                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">No Guaranteed Acceptance</div>
+                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">No Compatibility Guarantee</div>
+                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">Hardware Not Guaranteed</div>
                 </div>
               </div>
             </div>
@@ -214,7 +222,7 @@ export default function HeroSection({
 
           {/* Right Column: Visual Canadian Context Card */}
           <div className="lg:col-span-3 flex flex-col justify-stretch animate-fade-in-up" id="hero-image-card">
-            <div className="h-full rounded-2xl border border-[#D7E7F5] bg-white overflow-hidden flex flex-col justify-between relative group shadow-xl shadow-slate-200/50">
+            <div className="h-full rounded-3xl border border-[#CFE0EF] bg-white overflow-hidden flex flex-col justify-between relative group shadow-[0_10px_28px_rgba(8,26,51,0.07)] card-hover-effect transition-all duration-300">
               {/* Image Container with Gradients */}
               <div className="relative flex-1 min-h-[220px] overflow-hidden">
                 <img
@@ -227,19 +235,19 @@ export default function HeroSection({
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" />
                 
                 {/* Absolute overlay tag */}
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs border border-[#D7E7F5] rounded px-2.5 py-1 text-[9px] uppercase tracking-wider font-semibold text-[#0B7CFF] flex items-center gap-1.5 shadow-sm">
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs border border-[#CFE0EF] rounded-lg px-2.5 py-1 text-[9px] uppercase tracking-wider font-bold text-[#0B7CFF] flex items-center gap-1.5 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#16B981] animate-pulse" />
                   <span>Validation active</span>
                 </div>
               </div>
               
               {/* Small info box at bottom */}
-              <div className="p-4 bg-[#F8FBFF] border-t border-[#D7E7F5]">
+              <div className="p-5 bg-gradient-to-b from-[#FFFFFF] to-[#F8FBFF] border-t border-[#CFE0EF]">
                 <div className="flex items-center justify-between text-[11px] font-bold text-[#081A33]">
                   <span>Ontario Regional Sandbox</span>
                   <span className="text-[10px] text-[#00BFEF] font-bold tracking-wider">ACTIVE</span>
                 </div>
-                <p className="text-[10px] text-[#475A70] mt-1.5 leading-normal">
+                <p className="text-[10px] text-[#475A70] mt-1.5 leading-relaxed">
                   Testing vehicle CAN network signals in winter conditions to validate localized telemetry algorithms.
                 </p>
               </div>

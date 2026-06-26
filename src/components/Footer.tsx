@@ -17,8 +17,8 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
   return (
     <footer className="bg-white border-t border-[#D7E7F5]" id="footer-section">
       {/* Final CTA Banner (Selective Dark Navy Contrast) */}
-      <div className="bg-[#071426] relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8 text-center" id="final-cta-panel">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
+      <div className="bg-gradient-to-b from-[#081A33] to-[#030B18] relative overflow-hidden py-14 px-4 sm:px-6 lg:px-8 text-center border-t border-b border-[#0B7CFF]/15" id="final-cta-panel">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none" />
         
         <div className="mx-auto max-w-3xl relative z-10">
           <h2 className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl mb-4">
@@ -81,13 +81,13 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
               <h4 className="font-display font-bold text-[#081A33] text-xs uppercase tracking-wider">Cohort Funnel</h4>
               <ul className="space-y-2 text-[11px] text-[#475A70]">
                 <li>
-                  <span className="hover:text-[#081A33] transition-colors cursor-pointer">1. Lead Diagnostic Score</span>
+                  <span className="hover:text-[#0B7CFF] hover:underline transition-all cursor-pointer">1. Lead Diagnostic Score</span>
                 </li>
                 <li>
-                  <span className="hover:text-[#081A33] transition-colors cursor-pointer">2. Cohort Classification</span>
+                  <span className="hover:text-[#0B7CFF] hover:underline transition-all cursor-pointer">2. Cohort Classification</span>
                 </li>
                 <li>
-                  <span className="font-bold text-[#0B7CFF]">3. Active Cohort Reservation</span>
+                  <span className="font-bold text-[#0B7CFF] hover:underline transition-all cursor-pointer">3. Active Cohort Reservation</span>
                 </li>
               </ul>
             </div>
@@ -98,11 +98,11 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
               <ul className="space-y-2 text-[11px] text-[#475A70]">
                 <li className="flex items-center space-x-2">
                   <Mail className="h-3.5 w-3.5 text-[#0B7CFF]" />
-                  <span>founding-cohort@astrateq.ca</span>
+                  <span className="hover:text-[#0B7CFF] hover:underline transition-all cursor-pointer">founding-cohort@astrateq.ca</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <Phone className="h-3.5 w-3.5 text-[#0B7CFF]" />
-                  <span>+1 (800) ASTRATEQ</span>
+                  <span className="hover:text-[#0B7CFF] hover:underline transition-all cursor-pointer">+1 (800) ASTRATEQ</span>
                 </li>
               </ul>
             </div>
@@ -117,9 +117,9 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] pt-4 border-t border-[#D7E7F5]/40">
               <p>© 2026 Astrateq Gadgets Canada Inc. All rights reserved.</p>
               <div className="flex space-x-4">
-                <span className="hover:text-[#081A33] transition-colors cursor-pointer">Privacy Charter</span>
-                <span className="hover:text-[#081A33] transition-colors cursor-pointer">Reservation Policy</span>
-                <span className="hover:text-[#081A33] transition-colors cursor-pointer">Validation Terms</span>
+                <span className="hover:text-[#0B7CFF] hover:underline transition-colors cursor-pointer">Privacy Charter</span>
+                <span className="hover:text-[#0B7CFF] hover:underline transition-colors cursor-pointer">Reservation Policy</span>
+                <span className="hover:text-[#0B7CFF] hover:underline transition-colors cursor-pointer">Validation Terms</span>
               </div>
             </div>
           </div>

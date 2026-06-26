@@ -107,11 +107,11 @@ export default function ReservationForm({
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-10 h-40 w-40 rounded-full bg-blue-200/10 blur-[80px] pointer-events-none" />
 
         {/* Card Frame */}
-        <div className="rounded-3xl border border-[#D7E7F5] bg-white p-6 sm:p-10 shadow-2xl shadow-slate-200/60 relative z-10 text-[#081A33]" id="reservation-card">
+        <div className="rounded-3xl border border-[#CFE0EF] border-t-4 border-t-[#00BFEF] bg-white p-8 sm:p-12 shadow-[0_18px_50px_rgba(8,26,51,0.10)] relative z-10 text-[#081A33] card-premium-gradient overflow-hidden" id="reservation-card">
           
           {/* Header */}
           <div className="text-center mb-8">
-            <span className="text-[10px] font-bold text-[#0B7CFF] uppercase tracking-widest bg-[#EEF6FB] border border-[#D7E7F5] px-3.5 py-1.5 rounded-full">
+            <span className="text-[10px] font-bold text-[#0B7CFF] uppercase tracking-widest bg-[#EEF6FB] border border-[#D7E7F5] px-3.5 py-1.5 rounded-full shadow-xs">
               Cohort Validation Portal
             </span>
             <h2 className="mt-5 font-display text-2xl font-bold text-[#081A33] sm:text-3xl">
@@ -125,24 +125,25 @@ export default function ReservationForm({
           <form onSubmit={handleFormSubmit} className="space-y-6" id="reservation-html-form">
             
             {/* Dynamic Active Selection Indicator */}
-            <div className="rounded-2xl bg-[#F8FBFF] border border-[#D7E7F5] p-5 space-y-3 shadow-xs">
-              <div className="flex items-center justify-between">
+            <div className="rounded-2xl bg-[#F1FAFF] border border-[#BFE7FA] p-6 space-y-3.5 shadow-xs relative overflow-hidden">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Selected Tier</span>
-                  <span className="font-display font-bold text-sm text-[#081A33]">{activeTier.name}</span>
+                  <span className="font-display font-bold text-base text-[#081A33]">{activeTier.name}</span>
                 </div>
-                <div className="text-right">
+                <div className="flex flex-col sm:items-end">
                   <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Pricing Terms</span>
-                  <span className="font-mono text-xs font-bold text-[#0B7CFF]">
+                  <span className="font-mono text-sm font-black text-[#0B7CFF]">
                     {mode === 'mode-b' ? activeTier.deposit : 'No Payment Required'}
                   </span>
                 </div>
               </div>
-              <div className="border-t border-[#D7E7F5] pt-2.5 flex items-center justify-between text-[11px] text-[#475A70]">
+              <div className="border-t border-[#BFE7FA] pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-[11px] text-[#475A70]">
                 <span className="font-mono uppercase text-[9px] text-[#7B8CA3] font-bold">Validation Status</span>
-                <span className="font-bold text-[#16B981]">
-                  Early-access interest recorded. No payment required during validation.
-                </span>
+                <div className="flex items-center space-x-1.5 bg-[#EAFBF4] text-[#047857] px-2.5 py-1 rounded-full border border-emerald-100/80 font-semibold text-[10px] shadow-2xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#16B981] animate-pulse" />
+                  <span>No payment required today</span>
+                </div>
               </div>
             </div>
 
@@ -154,9 +155,9 @@ export default function ReservationForm({
               </div>
             )}
 
-            {/* Input fields */}
+            {/* Input fields wrapped in soft blue panels */}
             <div className="grid grid-cols-1 gap-5">
-              <div>
+              <div className="bg-[#F8FBFF]/80 p-4 sm:p-5 rounded-2xl border border-[#CFE0EF] shadow-2xs">
                 <label className="block text-[11px] font-bold text-[#475A70] uppercase tracking-wider mb-1.5">
                   Full Name
                 </label>
@@ -167,11 +168,11 @@ export default function ReservationForm({
                   value={fullName}
                   onFocus={() => handleFocus('fullName')}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full rounded-xl border border-[#CFE0EF] bg-[#F8FBFF] px-4 py-3 text-sm text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] focus:ring-1 focus:ring-[#0B7CFF]/25 transition-all"
+                  className="w-full rounded-xl border border-[#CFE0EF] bg-white px-4 py-3 text-sm text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] focus:ring-1 focus:ring-[#0B7CFF]/25 transition-all shadow-xs"
                 />
               </div>
 
-              <div>
+              <div className="bg-[#F8FBFF]/80 p-4 sm:p-5 rounded-2xl border border-[#CFE0EF] shadow-2xs">
                 <label className="block text-[11px] font-bold text-[#475A70] uppercase tracking-wider mb-1.5">
                   Email Address
                 </label>
@@ -185,14 +186,14 @@ export default function ReservationForm({
                     setEmail(e.target.value);
                     onTriggerEvent('email_submitted', { email: e.target.value });
                   }}
-                  className="w-full rounded-xl border border-[#CFE0EF] bg-[#F8FBFF] px-4 py-3 text-sm text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] focus:ring-1 focus:ring-[#0B7CFF]/25 transition-all"
+                  className="w-full rounded-xl border border-[#CFE0EF] bg-white px-4 py-3 text-sm text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] focus:ring-1 focus:ring-[#0B7CFF]/25 transition-all shadow-xs"
                 />
-                <span className="text-[10px] text-[#7B8CA3] mt-1.5 block">
+                <span className="text-[10px] text-[#7B8CA3] mt-2 block pl-1">
                   Confirms validation status. Strictly no spam or advertising data resale.
                 </span>
               </div>
 
-              <div>
+              <div className="bg-[#F8FBFF]/80 p-4 sm:p-5 rounded-2xl border border-[#CFE0EF] shadow-2xs">
                 <label className="block text-[11px] font-bold text-[#475A70] uppercase tracking-wider mb-1.5">
                   Vehicle Profile Reference
                 </label>
@@ -202,9 +203,9 @@ export default function ReservationForm({
                   value={vehicle}
                   onFocus={() => handleFocus('vehicle')}
                   onChange={(e) => setVehicle(e.target.value)}
-                  className="w-full rounded-xl border border-[#CFE0EF] bg-[#F8FBFF] px-4 py-3 text-sm text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] focus:ring-1 focus:ring-[#0B7CFF]/25 transition-all"
+                  className="w-full rounded-xl border border-[#CFE0EF] bg-white px-4 py-3 text-sm text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] focus:ring-1 focus:ring-[#0B7CFF]/25 transition-all shadow-xs"
                 />
-                <span className="text-[10px] text-[#7B8CA3] mt-1.5 block">
+                <span className="text-[10px] text-[#7B8CA3] mt-2 block pl-1">
                   Required to verify CAN bus & OBD port validation parameters.
                 </span>
               </div>
@@ -213,7 +214,7 @@ export default function ReservationForm({
             {/* Mode-specific Checkout Inputs */}
             {mode === 'mode-a' ? (
               /* Mode A Explainer */
-              <div className="rounded-xl bg-[#F8FBFF] border border-[#D7E7F5] p-4 space-y-2">
+              <div className="rounded-xl bg-[#F8FBFF] border border-[#CFE0EF] p-4.5 space-y-2">
                 <div className="flex items-center space-x-2 text-[#0B7CFF]">
                   <CheckCircle2 className="h-4 w-4 text-[#16B981]" />
                   <span className="text-xs font-bold uppercase tracking-wider font-mono">No payment required today</span>
@@ -224,13 +225,13 @@ export default function ReservationForm({
               </div>
             ) : (
               /* Mode B Stripe Simulator Input */
-              <div className="rounded-xl border border-[#D7E7F5] bg-[#F8FBFF] p-4 space-y-4 animate-fade-in-up shadow-xs">
-                <div className="flex items-center justify-between border-b border-[#D7E7F5] pb-2.5">
+              <div className="rounded-xl border border-[#CFE0EF] bg-[#F8FBFF] p-5 space-y-4 animate-fade-in-up shadow-xs">
+                <div className="flex items-center justify-between border-b border-[#D7E7F5] pb-3">
                   <div className="flex items-center space-x-2 text-[#0B7CFF]">
                     <CreditCard className="h-4 w-4" />
                     <span className="text-xs font-bold uppercase tracking-wider font-mono">Simulated Refundable Deposit</span>
                   </div>
-                  <span className="text-[9px] bg-[#EEF6FB] border border-[#D7E7F5] text-[#0B7CFF] px-2.5 py-0.5 rounded font-bold uppercase">
+                  <span className="text-[9px] bg-[#EEF6FB] border border-[#D7E7F5] text-[#0B7CFF] px-2.5 py-1 rounded font-extrabold uppercase tracking-wide">
                     Stripe Test Mode
                   </span>
                 </div>
@@ -247,7 +248,7 @@ export default function ReservationForm({
                         placeholder="4242 4242 4242 4242"
                         value={cardNumber}
                         onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ''))}
-                        className="w-full rounded border border-[#CFE0EF] bg-white px-3 py-2 text-[#081A33] outline-none focus:border-[#0B7CFF] font-mono text-xs"
+                        className="w-full rounded-lg border border-[#CFE0EF] bg-white px-3 py-2 text-[#081A33] outline-none focus:border-[#0B7CFF] font-mono text-xs shadow-2xs"
                       />
                       <Lock className="absolute right-3 top-2.5 h-3.5 w-3.5 text-[#7B8CA3]" />
                     </div>
@@ -263,7 +264,7 @@ export default function ReservationForm({
                       placeholder="12/28"
                       value={cardExpiry}
                       onChange={(e) => setCardExpiry(e.target.value.replace(/\D/g, ''))}
-                      className="w-full rounded border border-[#CFE0EF] bg-white px-3 py-2 text-[#081A33] outline-none focus:border-[#0B7CFF] font-mono text-xs text-center"
+                      className="w-full rounded-lg border border-[#CFE0EF] bg-white px-3 py-2 text-[#081A33] outline-none focus:border-[#0B7CFF] font-mono text-xs text-center shadow-2xs"
                     />
                   </div>
 
@@ -277,7 +278,7 @@ export default function ReservationForm({
                       placeholder="123"
                       value={cardCvc}
                       onChange={(e) => setCardCvc(e.target.value.replace(/\D/g, ''))}
-                      className="w-full rounded border border-[#CFE0EF] bg-white px-3 py-2 text-[#081A33] outline-none focus:border-[#0B7CFF] font-mono text-xs text-center"
+                      className="w-full rounded-lg border border-[#CFE0EF] bg-white px-3 py-2 text-[#081A33] outline-none focus:border-[#0B7CFF] font-mono text-xs text-center shadow-2xs"
                     />
                   </div>
                 </div>
@@ -288,50 +289,54 @@ export default function ReservationForm({
               </div>
             )}
 
-            {/* Transparency terms acceptance */}
-            <div className="flex items-start space-x-3 text-xs text-[#475A70]">
-              <input
-                type="checkbox"
-                id="agreeTerms"
-                checked={agreeTerms}
-                onChange={(e) => setAgreeTerms(e.target.checked)}
-                className="h-4 w-4 rounded border-[#CFE0EF] bg-[#F8FBFF] text-[#0B7CFF] focus:ring-0 focus:ring-offset-0 mt-0.5 accent-[#0B7CFF] cursor-pointer"
-              />
-              <label htmlFor="agreeTerms" className="leading-relaxed cursor-pointer select-none">
-                I understand this is a pre-launch validation signal. Submitting does not guarantee hardware availability, compatibility, launch timing, or future pricing. Deposits (if any) are fully refundable as per the early validation terms.
-              </label>
+            {/* Bottom action commitment area */}
+            <div className="border-t border-[#CFE0EF] pt-6 -mx-8 sm:-mx-12 px-8 sm:px-12 bg-gradient-to-b from-[#FFFFFF] to-[#F8FBFF] space-y-6">
+              
+              {/* Transparency terms acceptance */}
+              <div className="flex items-start space-x-3 text-xs text-[#475A70]">
+                <input
+                  type="checkbox"
+                  id="agreeTerms"
+                  checked={agreeTerms}
+                  onChange={(e) => setAgreeTerms(e.target.checked)}
+                  className="h-4 w-4 rounded border-[#CFE0EF] bg-white text-[#0B7CFF] focus:ring-0 focus:ring-offset-0 mt-0.5 accent-[#0B7CFF] cursor-pointer"
+                />
+                <label htmlFor="agreeTerms" className="leading-relaxed cursor-pointer select-none">
+                  I understand this is a pre-launch validation signal. Submitting does not guarantee hardware availability, compatibility, launch timing, or future pricing. Deposits (if any) are fully refundable as per the early validation terms.
+                </label>
+              </div>
+
+              {/* Action Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                id="reservation-submit-btn"
+                className={`w-full rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] py-4 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer ${
+                  isSubmitting ? 'opacity-85 cursor-wait' : 'hover:scale-[1.01] hover:opacity-95 hover:shadow-xl'
+                }`}
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                    <span>Recording Validation Signal...</span>
+                  </>
+                ) : (
+                  <>
+                    <ShieldCheck className="h-4 w-4 text-white" />
+                    <span>
+                      {mode === 'mode-b'
+                        ? 'Reserve My Founding Cohort Position'
+                        : 'Record My Early-Access Interest'}
+                    </span>
+                  </>
+                )}
+              </button>
+
+              {/* Trust Micro-Copy */}
+              <p className="text-[10px] text-[#7B8CA3] text-center uppercase tracking-wider font-bold">
+                No payment required during validation · Not a final product purchase · Canadian driver cohort
+              </p>
             </div>
-
-            {/* Action Submit Button */}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              id="reservation-submit-btn"
-              className={`w-full rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] py-4 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer ${
-                isSubmitting ? 'opacity-85 cursor-wait' : 'hover:scale-[1.01] hover:opacity-95 hover:shadow-xl'
-              }`}
-            >
-              {isSubmitting ? (
-                <>
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                  <span>Recording Validation Signal...</span>
-                </>
-              ) : (
-                <>
-                  <ShieldCheck className="h-4 w-4 text-white" />
-                  <span>
-                    {mode === 'mode-b'
-                      ? 'Reserve My Founding Cohort Position'
-                      : 'Record My Early-Access Interest'}
-                  </span>
-                </>
-              )}
-            </button>
-
-            {/* Trust Micro-Copy */}
-            <p className="text-[10px] text-[#7B8CA3] text-center uppercase tracking-wider font-bold">
-              No payment required during validation · Not a final product purchase · Canadian driver cohort
-            </p>
 
           </form>
         </div>

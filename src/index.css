@@ -10,7 +10,9 @@
   --color-section-alt: #EEF6FB;
   --color-card-bg: #FFFFFF;
   --color-card-sec: #F8FBFF;
-  --color-card-border: #D7E7F5;
+  --color-card-border: #CFE0EF;
+  --color-card-border-important: #A9D8F5;
+  --color-card-border-selected: #00BFEF;
   --color-primary-text: #081A33;
   --color-secondary-text: #475A70;
   --color-muted-text: #7B8CA3;
@@ -18,6 +20,36 @@
   --color-trust-green: #16B981;
   --color-val-amber: #F59E0B;
   --color-dark-navy: #071426;
+
+  /* Custom shadows */
+  --shadow-premium-default: 0 10px 28px rgba(8, 26, 51, 0.07);
+  --shadow-premium-lg: 0 18px 50px rgba(8, 26, 51, 0.10);
+  --shadow-premium-recommended: 0 20px 60px rgba(0, 191, 239, 0.18);
+  --shadow-premium-hover: 0 18px 45px rgba(8, 26, 51, 0.12);
+}
+
+/* Custom card gradients and utility classes */
+.card-premium-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FBFF 100%);
+}
+
+.card-recommended-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #EAF8FF 100%);
+}
+
+.card-hover-effect {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-premium-hover);
+  border-color: var(--color-card-border-important);
+}
+
+.card-hover-effect-selected:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-premium-recommended);
 }
 
 /* Custom animation utility for fade and slide in */

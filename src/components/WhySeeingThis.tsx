@@ -19,52 +19,64 @@ export default function WhySeeingThis() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
           
           {/* Card 1 */}
-          <div className="rounded-2xl border border-[#D7E7F5] bg-white p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:translate-y-[-2px] transition-all duration-200">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EEF6FB] border border-[#D7E7F5] mb-4 text-[#0B7CFF]">
-              <HeartHandshake className="h-6 w-6" />
+          <div className="rounded-3xl border border-[#CFE0EF] bg-white p-7 flex flex-col items-center text-center shadow-[0_10px_28px_rgba(8,26,51,0.07)] hover:shadow-[0_18px_45px_rgba(8,26,51,0.12)] hover:translate-y-[-2px] hover:border-[#A9D8F5] transition-all duration-300 relative overflow-hidden group">
+            {/* Subtle top accent line */}
+            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#00BFEF]" />
+            
+            {/* Larger icon badge */}
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EAF7FF] border border-[#BFE7FA] mb-5 text-[#00AEEF] transition-transform duration-300 group-hover:scale-105 shadow-xs">
+              <HeartHandshake className="h-7 w-7" />
             </div>
-            <h3 className="font-display font-bold text-[#081A33] text-sm mb-2">
+            <h3 className="font-display font-bold text-[#081A33] text-base mb-3">
               Validate Demand
             </h3>
-            <p className="text-xs text-[#475A70] leading-relaxed">
+            <p className="text-xs text-[#475A70] leading-relaxed mb-4">
               Your profile helps validate Canadian driver demand and localized interest for privacy-first assistance.
             </p>
-            <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#0B7CFF] font-bold text-[11px]">
-              <Check className="h-3.5 w-3.5 shrink-0 text-[#0B7CFF]" />
+            <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#00AEEF] font-bold text-[11px]">
+              <Check className="h-3.5 w-3.5 shrink-0 text-[#00BFEF]" />
               <span>Validates Canadian demand</span>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="rounded-2xl border border-[#D7E7F5] bg-white p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:translate-y-[-2px] transition-all duration-200">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EEF6FB] border border-[#D7E7F5] mb-4 text-[#0B7CFF]">
-              <Cpu className="h-6 w-6" />
+          <div className="rounded-3xl border border-[#CFE0EF] bg-white p-7 flex flex-col items-center text-center shadow-[0_10px_28px_rgba(8,26,51,0.07)] hover:shadow-[0_18px_45px_rgba(8,26,51,0.12)] hover:translate-y-[-2px] hover:border-[#A9D8F5] transition-all duration-300 relative overflow-hidden group">
+            {/* Subtle top accent line */}
+            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#00BFEF]" />
+            
+            {/* Larger icon badge */}
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EAF7FF] border border-[#BFE7FA] mb-5 text-[#00AEEF] transition-transform duration-300 group-hover:scale-105 shadow-xs">
+              <Cpu className="h-7 w-7" />
             </div>
-            <h3 className="font-display font-bold text-[#081A33] text-sm mb-2">
+            <h3 className="font-display font-bold text-[#081A33] text-base mb-3">
               Inform Compatibility
             </h3>
-            <p className="text-xs text-[#475A70] leading-relaxed">
+            <p className="text-xs text-[#475A70] leading-relaxed mb-4">
               Your vehicle type and OBD architecture help inform specific model compatibility and validation priorities.
             </p>
-            <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#0B7CFF] font-bold text-[11px]">
-              <Check className="h-3.5 w-3.5 shrink-0 text-[#0B7CFF]" />
+            <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#00BFEF] font-bold text-[11px]">
+              <Check className="h-3.5 w-3.5 shrink-0 text-[#00BFEF]" />
               <span>Informs vehicle priorities</span>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="rounded-2xl border border-[#D7E7F5] bg-white p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:translate-y-[-2px] transition-all duration-200">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EEF6FB] border border-[#D7E7F5] mb-4 text-[#0B7CFF]">
-              <ShieldAlert className="h-6 w-6" />
+          <div className="rounded-3xl border border-[#CFE0EF] bg-white p-7 flex flex-col items-center text-center shadow-[0_10px_28px_rgba(8,26,51,0.07)] hover:shadow-[0_18px_45px_rgba(8,26,51,0.12)] hover:translate-y-[-2px] hover:border-[#A9D8F5] transition-all duration-300 relative overflow-hidden group">
+            {/* Subtle top accent line */}
+            <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#00BFEF]" />
+            
+            {/* Larger icon badge */}
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EAF7FF] border border-[#BFE7FA] mb-5 text-[#00AEEF] transition-transform duration-300 group-hover:scale-105 shadow-xs">
+              <ShieldAlert className="h-7 w-7" />
             </div>
-            <h3 className="font-display font-bold text-[#081A33] text-sm mb-2">
+            <h3 className="font-display font-bold text-[#081A33] text-base mb-3">
               Guide Rollout Planning
             </h3>
-            <p className="text-xs text-[#475A70] leading-relaxed">
+            <p className="text-xs text-[#475A70] leading-relaxed mb-4">
               Your reservation signal acts as a critical planning anchor guiding future hardware and logistics rollouts.
             </p>
-            <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#0B7CFF] font-bold text-[11px]">
-              <Check className="h-3.5 w-3.5 shrink-0 text-[#0B7CFF]" />
+            <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#00BFEF] font-bold text-[11px]">
+              <Check className="h-3.5 w-3.5 shrink-0 text-[#00BFEF]" />
               <span>Guides rollout planning</span>
             </div>
           </div>

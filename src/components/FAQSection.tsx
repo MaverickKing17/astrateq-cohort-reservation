@@ -95,27 +95,31 @@ export default function FAQSection({ onTriggerEvent }: FAQSectionProps) {
               return (
                 <div
                   key={index}
-                  className={`rounded-2xl border transition-all duration-200 shadow-xs ${
+                  className={`rounded-2xl border transition-all duration-300 shadow-xs overflow-hidden ${
                     isExpanded
-                      ? 'border-[#00BFEF] bg-[#F8FBFF] shadow-sm shadow-[#0B7CFF]/5'
-                      : 'border-[#D7E7F5] bg-white hover:border-[#CFE0EF]'
+                      ? 'border-[#00BFEF] border-l-4 border-l-[#00BFEF] bg-[#F1FAFF] shadow-[0_10px_25px_rgba(0,191,239,0.06)]'
+                      : 'border-[#CFE0EF] bg-white hover:border-[#00BFEF] hover:shadow-xs'
                   }`}
                   id={`faq-item-${index}`}
                 >
                   <button
                     onClick={() => handleToggle(index)}
-                    className="flex w-full items-center justify-between px-5 py-4 text-left focus:outline-none"
+                    className="flex w-full items-center justify-between px-6 py-4.5 text-left focus:outline-none cursor-pointer"
                   >
-                    <span className="font-display text-xs font-bold text-[#081A33] hover:text-[#0B7CFF] transition-colors">
+                    <span className="font-display text-sm font-bold text-[#081A33] group-hover:text-[#0B7CFF] transition-colors">
                       {faq.question}
                     </span>
-                    <span className="ml-4 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#EEF6FB] text-[#0B7CFF] border border-[#D7E7F5]">
-                      {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+                    <span className={`ml-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                      isExpanded
+                        ? 'bg-[#00BFEF] border-cyan-400 text-white shadow-xs'
+                        : 'bg-[#EEF6FB] border-[#CFE0EF] text-[#0B7CFF]'
+                    }`}>
+                      {isExpanded ? <ChevronUp className="h-3 w-3 stroke-[2.5]" /> : <ChevronDown className="h-3 w-3 stroke-[2.5]" />}
                     </span>
                   </button>
 
                   {isExpanded && (
-                    <div className="px-5 pb-5 pt-1 text-xs text-[#475A70] leading-relaxed border-t border-[#D7E7F5]/60 animate-fade-in-up">
+                    <div className="px-6 pb-5 pt-1.5 text-xs text-[#475A70] leading-relaxed border-t border-[#BFE7FA]/50 bg-white/50 animate-fade-in-up">
                       {faq.answer}
                     </div>
                   )}
