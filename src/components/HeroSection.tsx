@@ -24,8 +24,8 @@ export default function HeroSection({
         recommendedTier: 'Founder Priority Allocation',
         confidence: 'Very High',
         riskProfile: 'Low-to-Moderate Seasonal Risk',
-        badgeColor: 'bg-emerald-500 text-slate-950',
-        ringColor: 'text-emerald-400 stroke-emerald-400',
+        badgeColor: 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/50',
+        ringColor: 'text-emerald-500 stroke-emerald-500',
       };
     } else if (s >= 75) {
       return {
@@ -33,7 +33,7 @@ export default function HeroSection({
         recommendedTier: 'Guardian Pro Interest',
         confidence: 'High',
         riskProfile: 'Highway / Seasonal Considerations',
-        badgeColor: 'bg-cyan-500 text-slate-950',
+        badgeColor: 'bg-cyan-950/80 text-cyan-400 border border-cyan-800/50',
         ringColor: 'text-cyan-400 stroke-cyan-400',
       };
     } else if (s >= 60) {
@@ -42,7 +42,7 @@ export default function HeroSection({
         recommendedTier: 'Readiness Access',
         confidence: 'Moderate',
         riskProfile: 'Mixed Driving Readiness Review',
-        badgeColor: 'bg-indigo-500 text-white',
+        badgeColor: 'bg-indigo-950/80 text-indigo-400 border border-indigo-800/50',
         ringColor: 'text-indigo-400 stroke-indigo-400',
       };
     } else {
@@ -51,8 +51,8 @@ export default function HeroSection({
         recommendedTier: 'Standard Validation Queue',
         confidence: 'Needs Review',
         riskProfile: 'Elevated Readiness Concerns',
-        badgeColor: 'bg-amber-500 text-slate-950',
-        ringColor: 'text-amber-400 stroke-amber-400',
+        badgeColor: 'bg-amber-950/80 text-amber-400 border border-amber-800/50',
+        ringColor: 'text-amber-500 stroke-amber-500',
       };
     }
   };
@@ -72,8 +72,8 @@ export default function HeroSection({
   return (
     <section className="relative overflow-hidden bg-slate-950 pt-12 pb-20 border-b border-slate-900" id="hero">
       {/* Background ambient glows */}
-      <div className="absolute top-1/4 left-1/10 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 h-96 w-96 rounded-full bg-sky-500/10 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/10 h-72 w-72 rounded-full bg-cyan-400/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 h-96 w-96 rounded-full bg-sky-400/10 blur-[150px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
@@ -81,7 +81,7 @@ export default function HeroSection({
           {/* Left Column: Direct Response Core */}
           <div className="lg:col-span-5 flex flex-col justify-center text-left" id="hero-left">
             {/* Status Pill */}
-            <div className="mb-6 inline-flex items-center space-x-2 self-start rounded-full border border-cyan-500/30 bg-cyan-950/40 px-3.5 py-1 text-xs font-semibold text-cyan-400 shadow-sm shadow-cyan-500/5">
+            <div className="mb-6 inline-flex items-center space-x-2 self-start rounded-full border border-cyan-800 bg-cyan-950/60 px-3.5 py-1 text-xs font-semibold text-cyan-400 shadow-sm">
               <CheckCircle2 className="h-4 w-4 text-cyan-400 shrink-0" />
               <span className="tracking-wider uppercase">DIAGNOSTIC COMPLETE</span>
             </div>
@@ -93,7 +93,7 @@ export default function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-sm leading-relaxed text-slate-400 mb-8 max-w-xl">
+            <p className="text-sm leading-relaxed text-slate-300 mb-8 max-w-xl">
               Your readiness result suggests alignment with Astrateq Gadgets’ Canadian pre-launch validation priorities. Continue to record interest and shape privacy-first intelligence for Canadian roads.
             </p>
 
@@ -102,7 +102,7 @@ export default function HeroSection({
               <button
                 id="hero-primary-cta"
                 onClick={handleCtaClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-cyan-500 text-slate-950 font-bold px-8 py-4 text-sm tracking-wider uppercase shadow-xl shadow-cyan-500/10 transition-all duration-200 hover:bg-cyan-400 hover:scale-[1.01] active:scale-[0.99] group cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-xl bg-cyan-500 text-slate-950 font-bold px-8 py-4 text-sm tracking-wider uppercase shadow-xl transition-all duration-200 hover:bg-cyan-400 hover:scale-[1.01] active:scale-[0.99] group cursor-pointer"
               >
                 <span>
                   {mode === 'mode-b'
@@ -114,7 +114,7 @@ export default function HeroSection({
             </div>
 
             {/* Trust line under CTA */}
-            <p className="text-xs text-slate-400 flex flex-wrap items-center gap-1.5 font-medium border-l-2 border-cyan-500/50 pl-3">
+            <p className="text-xs text-slate-400 flex flex-wrap items-center gap-1.5 font-medium border-l-2 border-cyan-500 pl-3">
               <span>No payment required during validation</span>
               <span className="text-slate-600">•</span>
               <span>Early-access interest only</span>
@@ -125,7 +125,7 @@ export default function HeroSection({
 
           {/* Center Column: Diagnostic Carryover Summary Card */}
           <div className="lg:col-span-4 flex flex-col justify-stretch" id="hero-diagnostic-card">
-            <div className="flex flex-col justify-between h-full bg-slate-900 border border-cyan-500/30 rounded-xl p-6 shadow-2xl shadow-cyan-500/10 relative overflow-hidden group transition-all">
+            <div className="flex flex-col justify-between h-full bg-slate-900/40 border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden group transition-all">
               
               {/* Header */}
               <div>
@@ -137,7 +137,7 @@ export default function HeroSection({
                 </div>
 
                 {/* Score Circular Visualizer */}
-                <div className="flex items-center justify-center py-5 border-b border-slate-800/40 mb-5 bg-slate-950/40 rounded-xl">
+                <div className="flex items-center justify-center py-5 border border-slate-800 mb-5 bg-slate-950/50 rounded-xl">
                   <div className="relative flex items-center justify-center">
                     <svg className="h-20 w-20 transform -rotate-90">
                       {/* Grey background ring */}
@@ -163,12 +163,12 @@ export default function HeroSection({
                     {/* Central Text */}
                     <div className="absolute text-center">
                       <span className="font-display text-xl font-black text-white">{score}</span>
-                      <span className="text-[10px] text-slate-500 block font-semibold leading-none">/100</span>
+                      <span className="text-[10px] text-slate-400 block font-semibold leading-none">/100</span>
                     </div>
                   </div>
                   <div className="ml-4 text-left">
                     <span className="text-[9px] text-slate-400 font-mono tracking-wider uppercase block">Active Rating</span>
-                    <h3 className="font-display text-sm font-bold text-white transition-colors duration-300">
+                    <h3 className="font-display text-sm font-bold text-slate-100 transition-colors duration-300">
                       {attributes.scoreLabel}
                     </h3>
                     <p className="text-[11px] text-slate-400">
@@ -185,30 +185,30 @@ export default function HeroSection({
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] text-slate-500 uppercase font-bold">Recommended Cohort</p>
-                    <p className="text-xs font-semibold text-white leading-tight mt-0.5">{attributes.recommendedTier}</p>
+                    <p className="text-xs font-semibold text-slate-300 leading-tight mt-0.5">{attributes.recommendedTier}</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] text-slate-500 uppercase font-bold">Risk Profile</p>
-                    <p className="text-xs font-semibold text-white leading-tight mt-0.5">{attributes.riskProfile}</p>
+                    <p className="text-xs font-semibold text-slate-300 leading-tight mt-0.5">{attributes.riskProfile}</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] text-slate-500 uppercase font-bold">Region Context</p>
-                    <p className="text-xs font-semibold text-white leading-tight mt-0.5">{region}</p>
+                    <p className="text-xs font-semibold text-slate-300 leading-tight mt-0.5">{region}</p>
                   </div>
                 </div>
               </div>
 
               {/* Supporting Copy */}
-              <div className="mt-auto pt-4 border-t border-slate-800">
+              <div className="mt-auto pt-4 border-t border-slate-800/80">
                 <p className="text-[10px] leading-relaxed text-slate-400">
                   GTA testing suggests compatible hardware setup for {vehicleType || 'standard vehicles'}. No direct cost for recording cohort placement.
                 </p>
                 
                 {/* Visual Safeguard Badges */}
-                <div className="grid grid-cols-3 gap-1 mt-3 text-[8px] font-medium text-slate-500 tracking-tight text-center">
-                  <div className="px-1 py-0.5 rounded bg-slate-950/30 border border-slate-800/30">No Guaranteed Acceptance</div>
-                  <div className="px-1 py-0.5 rounded bg-slate-950/30 border border-slate-800/30">No Compatibility Guarantee</div>
-                  <div className="px-1 py-0.5 rounded bg-slate-950/30 border border-slate-800/30">Hardware Not Guaranteed</div>
+                <div className="grid grid-cols-3 gap-1 mt-3 text-[8px] font-medium text-slate-400 tracking-tight text-center">
+                  <div className="px-1 py-0.5 rounded bg-slate-950 border border-slate-800/50">No Guaranteed Acceptance</div>
+                  <div className="px-1 py-0.5 rounded bg-slate-950 border border-slate-800/50">No Compatibility Guarantee</div>
+                  <div className="px-1 py-0.5 rounded bg-slate-950 border border-slate-800/50">Hardware Not Guaranteed</div>
                 </div>
               </div>
             </div>
@@ -216,7 +216,7 @@ export default function HeroSection({
 
           {/* Right Column: Visual Canadian Context Card */}
           <div className="lg:col-span-3 flex flex-col justify-stretch animate-fade-in-up" id="hero-image-card">
-            <div className="h-full rounded-2xl border border-slate-800/80 bg-slate-900/40 overflow-hidden flex flex-col justify-between relative group shadow-xl">
+            <div className="h-full rounded-2xl border border-slate-800 bg-slate-900/40 overflow-hidden flex flex-col justify-between relative group shadow-xl">
               {/* Image Container with Gradients */}
               <div className="relative flex-1 min-h-[220px] overflow-hidden">
                 <img
@@ -226,22 +226,22 @@ export default function HeroSection({
                   referrerPolicy="no-referrer"
                 />
                 {/* Ambient vignette gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
                 
                 {/* Absolute overlay tag */}
-                <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800/60 rounded px-2.5 py-1 text-[9px] uppercase tracking-wider font-semibold text-cyan-400 flex items-center gap-1">
+                <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm border border-slate-800/50 rounded px-2.5 py-1 text-[9px] uppercase tracking-wider font-semibold text-cyan-400 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                   <span>Validation active</span>
                 </div>
               </div>
               
               {/* Small info box at bottom */}
-              <div className="p-4 bg-slate-900/90 border-t border-slate-800">
+              <div className="p-4 bg-slate-950/50 border-t border-slate-800">
                 <div className="flex items-center justify-between text-[11px] font-semibold text-slate-300">
                   <span>Ontario Regional Sandbox</span>
-                  <span className="text-[10px] text-cyan-400">ACTIVE</span>
+                  <span className="text-[10px] text-cyan-400 font-bold">ACTIVE</span>
                 </div>
-                <p className="text-[10px] text-slate-500 mt-1 leading-normal">
+                <p className="text-[10px] text-slate-400 mt-1 leading-normal">
                   Testing vehicle CAN network signals in winter conditions to validate localized telemetry algorithms.
                 </p>
               </div>

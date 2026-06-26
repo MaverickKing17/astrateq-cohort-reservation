@@ -102,22 +102,22 @@ export default function ReservationForm({
   };
 
   return (
-    <section className="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200" id="reservation-section">
+    <section className="bg-slate-950 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-900" id="reservation-section">
       <div className="mx-auto max-w-2xl relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-10 h-40 w-40 rounded-full bg-cyan-500/5 blur-[80px] pointer-events-none" />
 
         {/* Card Frame */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm relative z-10 text-slate-900" id="reservation-card">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 sm:p-8 shadow-xl relative z-10 text-slate-100" id="reservation-card">
           
           {/* Header */}
           <div className="text-center mb-8">
-            <span className="text-[10px] font-bold text-cyan-800 uppercase tracking-widest bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full">
+            <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-950/60 border border-cyan-850 px-3 py-1 rounded-full">
               Cohort Validation Portal
             </span>
-            <h2 className="mt-4 font-display text-2xl font-bold text-slate-900 sm:text-3xl">
+            <h2 className="mt-4 font-display text-2xl font-bold text-white sm:text-3xl">
               Reserve Your Founding Cohort Position
             </h2>
-            <p className="mt-2 text-xs text-slate-500 max-w-lg mx-auto">
+            <p className="mt-2 text-xs text-slate-400 max-w-lg mx-auto">
               You are recording early-access interest in Astrateq Gadgets’ Canadian pre-launch validation program. This helps validate demand before future hardware allocation, compatibility review, and rollout decisions.
             </p>
           </div>
@@ -125,22 +125,22 @@ export default function ReservationForm({
           <form onSubmit={handleFormSubmit} className="space-y-6" id="reservation-html-form">
             
             {/* Dynamic Active Selection Indicator */}
-            <div className="rounded-xl bg-slate-50 border border-slate-100 p-4 space-y-3">
+            <div className="rounded-xl bg-slate-950/60 border border-slate-800 p-4 space-y-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] text-slate-400 font-mono uppercase block">Selected Tier</span>
-                  <span className="font-display font-bold text-sm text-slate-900">{activeTier.name}</span>
+                  <span className="text-[10px] text-slate-500 font-mono uppercase block">Selected Tier</span>
+                  <span className="font-display font-bold text-sm text-slate-200">{activeTier.name}</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10px] text-slate-400 font-mono uppercase block">Pricing Terms</span>
-                  <span className="font-mono text-xs font-bold text-cyan-700">
+                  <span className="text-[10px] text-slate-500 font-mono uppercase block">Pricing Terms</span>
+                  <span className="font-mono text-xs font-bold text-cyan-400">
                     {mode === 'mode-b' ? activeTier.deposit : 'No Payment Required'}
                   </span>
                 </div>
               </div>
-              <div className="border-t border-slate-100 pt-2 flex items-center justify-between text-[11px] text-slate-500">
-                <span className="font-mono uppercase text-[9px] text-slate-400">Validation Status</span>
-                <span className="font-semibold text-emerald-600">
+              <div className="border-t border-slate-850 pt-2 flex items-center justify-between text-[11px] text-slate-400">
+                <span className="font-mono uppercase text-[9px] text-slate-500">Validation Status</span>
+                <span className="font-semibold text-emerald-400">
                   Early-access interest recorded. No payment required during validation.
                 </span>
               </div>
@@ -148,7 +148,7 @@ export default function ReservationForm({
 
             {/* Error Message */}
             {errorMessage && (
-              <div className="rounded-lg bg-rose-50 border border-rose-200 p-3.5 text-xs text-rose-800 flex items-start space-x-2.5 animate-fade-in-up">
+              <div className="rounded-lg bg-rose-950/50 border border-rose-900/50 p-3.5 text-xs text-rose-300 flex items-start space-x-2.5 animate-fade-in-up">
                 <Info className="h-4 w-4 shrink-0 mt-0.5" />
                 <span>{errorMessage}</span>
               </div>
@@ -157,7 +157,7 @@ export default function ReservationForm({
             {/* Input fields */}
             <div className="grid grid-cols-1 gap-5">
               <div>
-                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                   Full Name
                 </label>
                 <input
@@ -167,12 +167,12 @@ export default function ReservationForm({
                   value={fullName}
                   onFocus={() => handleFocus('fullName')}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600/20 transition-all"
+                  className="w-full rounded-xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/25 transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                   Email Address
                 </label>
                 <input
@@ -185,15 +185,15 @@ export default function ReservationForm({
                     setEmail(e.target.value);
                     onTriggerEvent('email_submitted', { email: e.target.value });
                   }}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600/20 transition-all"
+                  className="w-full rounded-xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/25 transition-all"
                 />
-                <span className="text-[10px] text-slate-400 mt-1.5 block">
+                <span className="text-[10px] text-slate-500 mt-1.5 block">
                   Confirms validation status. Strictly no spam or advertising data resale.
                 </span>
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                <label className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                   Vehicle Profile Reference
                 </label>
                 <input
@@ -202,9 +202,9 @@ export default function ReservationForm({
                   value={vehicle}
                   onFocus={() => handleFocus('vehicle')}
                   onChange={(e) => setVehicle(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600/20 transition-all"
+                  className="w-full rounded-xl border border-slate-800 bg-slate-950/50 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/25 transition-all"
                 />
-                <span className="text-[10px] text-slate-400 mt-1.5 block">
+                <span className="text-[10px] text-slate-500 mt-1.5 block">
                   Required to verify CAN bus & OBD port validation parameters.
                 </span>
               </div>
@@ -213,31 +213,31 @@ export default function ReservationForm({
             {/* Mode-specific Checkout Inputs */}
             {mode === 'mode-a' ? (
               /* Mode A Explainer */
-              <div className="rounded-xl bg-slate-50 border border-slate-100 p-4 space-y-2">
-                <div className="flex items-center space-x-2 text-cyan-700">
+              <div className="rounded-xl bg-slate-950/60 border border-slate-800 p-4 space-y-2">
+                <div className="flex items-center space-x-2 text-cyan-400">
                   <CheckCircle2 className="h-4 w-4" />
                   <span className="text-xs font-bold uppercase tracking-wider font-mono">No payment required today</span>
                 </div>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-xs text-slate-400 leading-relaxed">
                   Your early-access interest will be recorded. This is not a purchase and does not guarantee hardware availability, compatibility, or launch timing.
                 </p>
               </div>
             ) : (
               /* Mode B Stripe Simulator Input */
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-4 animate-fade-in-up">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
-                  <div className="flex items-center space-x-2 text-cyan-700">
+              <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4 space-y-4 animate-fade-in-up">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                  <div className="flex items-center space-x-2 text-cyan-400">
                     <CreditCard className="h-4 w-4" />
                     <span className="text-xs font-bold uppercase tracking-wider font-mono">Simulated Refundable Deposit</span>
                   </div>
-                  <span className="text-[9px] bg-cyan-600 text-white px-2 py-0.5 rounded font-bold uppercase">
+                  <span className="text-[9px] bg-cyan-950 border border-cyan-850 text-cyan-400 px-2.5 py-0.5 rounded font-bold uppercase">
                     Stripe Test Mode
                   </span>
                 </div>
 
                 <div className="grid grid-cols-6 gap-3 text-xs">
                   <div className="col-span-6">
-                    <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-wide mb-1">
+                    <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wide mb-1">
                       Card Number
                     </label>
                     <div className="relative">
@@ -247,14 +247,14 @@ export default function ReservationForm({
                         placeholder="4242 4242 4242 4242"
                         value={cardNumber}
                         onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ''))}
-                        className="w-full rounded bg-white border border-slate-200 px-3 py-2 text-slate-850 outline-none focus:border-cyan-600 font-mono text-xs"
+                        className="w-full rounded bg-slate-900 border border-slate-800 px-3 py-2 text-white outline-none focus:border-cyan-500 font-mono text-xs"
                       />
-                      <Lock className="absolute right-3 top-2.5 h-3.5 w-3.5 text-slate-400" />
+                      <Lock className="absolute right-3 top-2.5 h-3.5 w-3.5 text-slate-500" />
                     </div>
                   </div>
 
                   <div className="col-span-3">
-                    <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-wide mb-1">
+                    <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wide mb-1">
                       Expiration (MM/YY)
                     </label>
                     <input
@@ -263,12 +263,12 @@ export default function ReservationForm({
                       placeholder="12/28"
                       value={cardExpiry}
                       onChange={(e) => setCardExpiry(e.target.value.replace(/\D/g, ''))}
-                      className="w-full rounded bg-white border border-slate-200 px-3 py-2 text-slate-850 outline-none focus:border-cyan-600 font-mono text-xs text-center"
+                      className="w-full rounded bg-slate-900 border border-slate-800 px-3 py-2 text-white outline-none focus:border-cyan-500 font-mono text-xs text-center"
                     />
                   </div>
 
                   <div className="col-span-3">
-                    <label className="block text-[10px] font-semibold text-slate-500 uppercase tracking-wide mb-1">
+                    <label className="block text-[10px] font-semibold text-slate-400 uppercase tracking-wide mb-1">
                       CVC / CVV
                     </label>
                     <input
@@ -277,25 +277,25 @@ export default function ReservationForm({
                       placeholder="123"
                       value={cardCvc}
                       onChange={(e) => setCardCvc(e.target.value.replace(/\D/g, ''))}
-                      className="w-full rounded bg-white border border-slate-200 px-3 py-2 text-slate-850 outline-none focus:border-cyan-600 font-mono text-xs text-center"
+                      className="w-full rounded bg-slate-900 border border-slate-800 px-3 py-2 text-white outline-none focus:border-cyan-500 font-mono text-xs text-center"
                     />
                   </div>
                 </div>
 
-                <p className="text-[10px] text-slate-400 leading-normal italic">
+                <p className="text-[10px] text-slate-500 leading-normal italic">
                   * Note: This is a simulated checkout during pre-launch demand validation. No real charges are processed. Testing credit card credentials only.
                 </p>
               </div>
             )}
 
             {/* Transparency terms acceptance */}
-            <div className="flex items-start space-x-3 text-xs text-slate-500">
+            <div className="flex items-start space-x-3 text-xs text-slate-400">
               <input
                 type="checkbox"
                 id="agreeTerms"
                 checked={agreeTerms}
                 onChange={(e) => setAgreeTerms(e.target.checked)}
-                className="h-4 w-4 rounded border-slate-300 bg-white text-cyan-600 focus:ring-0 focus:ring-offset-0 mt-0.5 accent-cyan-600 cursor-pointer"
+                className="h-4 w-4 rounded border-slate-800 bg-slate-950 text-cyan-400 focus:ring-0 focus:ring-offset-0 mt-0.5 accent-cyan-400 cursor-pointer"
               />
               <label htmlFor="agreeTerms" className="leading-relaxed cursor-pointer select-none">
                 I understand this is a pre-launch validation signal. Submitting does not guarantee hardware availability, compatibility, launch timing, or future pricing. Deposits (if any) are fully refundable as per the early validation terms.
@@ -307,18 +307,18 @@ export default function ReservationForm({
               type="submit"
               disabled={isSubmitting}
               id="reservation-submit-btn"
-              className={`w-full rounded-xl bg-slate-900 py-4 text-sm font-bold text-white shadow-xl hover:bg-slate-800 transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer ${
-                isSubmitting ? 'opacity-80 cursor-wait' : 'hover:scale-[1.01]'
+              className={`w-full rounded-xl bg-cyan-500 py-4 text-sm font-bold text-slate-950 shadow-xl transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer ${
+                isSubmitting ? 'opacity-80 cursor-wait' : 'hover:bg-cyan-400 hover:scale-[1.01]'
               }`}
             >
               {isSubmitting ? (
                 <>
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-slate-950 border-t-transparent" />
                   <span>Recording Validation Signal...</span>
                 </>
               ) : (
                 <>
-                  <ShieldCheck className="h-4 w-4" />
+                  <ShieldCheck className="h-4 w-4 text-slate-950" />
                   <span>
                     {mode === 'mode-b'
                       ? 'Reserve My Founding Cohort Position'
@@ -329,7 +329,7 @@ export default function ReservationForm({
             </button>
 
             {/* Trust Micro-Copy */}
-            <p className="text-[10px] text-slate-400 text-center uppercase tracking-wider font-semibold">
+            <p className="text-[10px] text-slate-500 text-center uppercase tracking-wider font-semibold">
               No payment required during validation · Not a final product purchase · Canadian driver cohort
             </p>
 

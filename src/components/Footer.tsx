@@ -51,7 +51,7 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
               <img 
                 src="https://i.ibb.co/zhgDcPJM/Astrateq.png" 
                 alt="Astrateq Gadgets" 
-                className="h-11 w-auto object-contain"
+                className="h-11 w-auto object-contain brightness-100"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -111,7 +111,7 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
         <div className="border-t border-slate-900 pt-8 text-[11px] text-slate-500 space-y-4 max-w-4xl">
           <p className="leading-relaxed">
             <strong className="text-slate-400 uppercase tracking-wide block mb-1">Pre-Launch Legal Sandbox Disclaimer</strong>
-            Astrateq Gadgets is currently in an early-stage consumer demand validation phase. All graphics, product specifications, pricing estimates, and timelines depicted on this landing page are for validation testing and product market research purposes only. No actual hardware is commercially available, nor do we guarantee future market availability, manufacturing, or distribution.
+            Astrateq Gadgets is currently in an early-stage consumer demand consumer validation phase. All graphics, product specifications, pricing estimates, and timelines depicted on this landing page are for validation testing and product market research purposes only. No actual hardware is commercially available, nor do we guarantee future market availability, manufacturing, or distribution.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] pt-4 border-t border-slate-900/40">
             <p>© 2026 Astrateq Gadgets Canada Inc. All rights reserved.</p>

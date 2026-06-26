@@ -12,7 +12,6 @@ import PostSubmissionConfirmation from './components/PostSubmissionConfirmation'
 import TrustSection from './components/TrustSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
-import DevConsole from './components/DevConsole';
 
 export default function App() {
   // Sandbox States
@@ -201,14 +200,6 @@ export default function App() {
         />
 
       </main>
-
-      {/* 11. Collapsible Admin Dev Logs Console */}
-      <DevConsole
-        events={events}
-        reservations={reservations}
-        onClearDatabase={handleClearDatabase}
-        onClearEvents={handleClearEvents}
-      />
     </div>
   );
 }

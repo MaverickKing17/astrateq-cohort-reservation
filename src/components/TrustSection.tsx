@@ -7,35 +7,30 @@ export default function TrustSection() {
       description: 'Astrateq Gadgets is being designed around privacy-first readiness intelligence.',
       detail: 'Core telemetry algorithms are computed locally on the hardware node itself. No continuous tracking coordinates are streamed.',
       icon: Shield,
-      accent: 'border-cyan-500/10 hover:border-cyan-500/30'
     },
     {
       title: 'No data resale model',
       description: 'Your driving profile is not being built for advertising resale.',
       detail: 'Unlike mainstream driver trackers, Astrateq has zero advertising partnerships or third-party marketing brokers. Your telemetry is yours.',
       icon: EyeOff,
-      accent: 'border-cyan-500/10 hover:border-cyan-500/30'
     },
     {
       title: 'Not an insurance tracker',
       description: 'Astrateq is not positioned as an insurer-style driver scoring app.',
       detail: 'We do not sell scores to insurance companies or brokers to adjust rates. Our rating exists purely to advise your own preventative readiness.',
       icon: Ban,
-      accent: 'border-cyan-500/10 hover:border-cyan-500/30'
     },
     {
       title: 'Canada-focused validation',
       description: 'The program is designed around Ontario/GTA and broader Canadian driving conditions.',
       detail: 'Engineered specifically to accommodate extreme sub-zero batteries, GTA traffic clusters, highway corridors, and seasonal tire conversions.',
       icon: Map,
-      accent: 'border-cyan-500/10 hover:border-cyan-500/30'
     },
     {
       title: 'Pre-launch transparency',
       description: 'Hardware availability, pricing, compatibility, and timing depend on validation results and future manufacturing decisions.',
       detail: 'We share engineering updates with early cohort registrants. We make no fake scarcity claims, empty promises, or shipping guarantees.',
       icon: Compass,
-      accent: 'border-cyan-500/10 hover:border-cyan-500/30'
     }
   ];
 
@@ -64,7 +59,7 @@ export default function TrustSection() {
             return (
               <div
                 key={i}
-                className={`flex flex-col justify-between rounded-xl border bg-slate-900/50 p-5 transition-all duration-200 hover:bg-slate-900/80 shadow-md ${card.accent}`}
+                className="flex flex-col justify-between rounded-xl border border-slate-800/80 bg-slate-900/50 p-5 transition-all duration-200 hover:bg-slate-900/80 hover:border-slate-700 hover:shadow-lg shadow-md"
               >
                 <div>
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-cyan-400 border border-slate-800 mb-4">

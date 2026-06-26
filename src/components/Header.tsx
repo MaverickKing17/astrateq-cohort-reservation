@@ -12,9 +12,9 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-slate-950/95 backdrop-blur-md border-b border-cyan-500/30 shadow-lg shadow-cyan-950/30">
-      {/* Top colorful gradient accent line to make the header pop on scroll */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-500" />
+    <header className="sticky top-0 z-40 w-full bg-slate-950/95 backdrop-blur-md border-b border-slate-900 shadow-lg shadow-slate-950/50 transition-all duration-200">
+      {/* Top vibrant colorful gradient accent line to make the header pop on scroll */}
+      <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-cyan-500 via-sky-400 to-indigo-500" />
       
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo and Tagline */}
@@ -26,7 +26,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
           <img 
             src="https://i.ibb.co/zhgDcPJM/Astrateq.png" 
             alt="Astrateq Gadgets" 
-            className="h-11 w-auto object-contain"
+            className="h-11 w-auto object-contain brightness-100"
             referrerPolicy="no-referrer"
           />
         </div>
@@ -35,31 +35,31 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
         <nav className="hidden md:flex items-center space-x-6" id="header-nav-desktop">
           <button
             onClick={() => onScrollToSection('why-us')}
-            className="text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
+            className="text-xs font-bold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
           >
             Technology
           </button>
           <button
             onClick={() => onScrollToSection('benefits')}
-            className="text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
+            className="text-xs font-bold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
           >
             Benefits
           </button>
           <button
             onClick={() => onScrollToSection('tiers')}
-            className="text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
+            className="text-xs font-bold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
           >
             Tiers
           </button>
           <button
             onClick={() => onScrollToSection('trust')}
-            className="text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
+            className="text-xs font-bold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
           >
             Trust
           </button>
           <button
             onClick={() => onScrollToSection('faq')}
-            className="text-xs font-semibold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
+            className="text-xs font-bold tracking-widest uppercase text-slate-300 hover:text-cyan-400 transition-colors"
           >
             FAQ
           </button>
@@ -68,9 +68,9 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
         {/* Action Button & Cohort Info */}
         <div className="hidden md:flex items-center space-x-6">
           <div className="hidden lg:flex items-center gap-4">
-            <span className="text-[10px] font-semibold tracking-wider uppercase text-slate-400">Canadian Driver Cohort</span>
-            <div className="h-4 w-px bg-slate-700"></div>
-            <span className="text-[10px] font-semibold text-cyan-400 uppercase tracking-wider animate-pulse">Validation Open</span>
+            <span className="text-[10px] font-bold tracking-wider uppercase text-slate-400">Canadian Driver Cohort</span>
+            <div className="h-4 w-px bg-slate-800"></div>
+            <span className="text-[10px] font-extrabold text-cyan-400 uppercase tracking-wider animate-pulse">Validation Open</span>
           </div>
           <button
             id="header-cta-btn"
@@ -102,7 +102,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
               onScrollToSection('why-us');
               setIsOpen(false);
             }}
-            className="block w-full text-left rounded-md px-3 py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
+            className="block w-full text-left rounded-md px-3 py-2 text-xs font-bold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
           >
             Technology
           </button>
@@ -111,7 +111,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
               onScrollToSection('benefits');
               setIsOpen(false);
             }}
-            className="block w-full text-left rounded-md px-3 py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
+            className="block w-full text-left rounded-md px-3 py-2 text-xs font-bold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
           >
             Benefits
           </button>
@@ -120,7 +120,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
               onScrollToSection('tiers');
               setIsOpen(false);
             }}
-            className="block w-full text-left rounded-md px-3 py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
+            className="block w-full text-left rounded-md px-3 py-2 text-xs font-bold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
           >
             Tiers
           </button>
@@ -129,7 +129,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
               onScrollToSection('trust');
               setIsOpen(false);
             }}
-            className="block w-full text-left rounded-md px-3 py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
+            className="block w-full text-left rounded-md px-3 py-2 text-xs font-bold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
           >
             Trust & Security
           </button>
@@ -138,7 +138,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
               onScrollToSection('faq');
               setIsOpen(false);
             }}
-            className="block w-full text-left rounded-md px-3 py-2 text-xs font-semibold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
+            className="block w-full text-left rounded-md px-3 py-2 text-xs font-bold tracking-widest uppercase text-slate-300 hover:bg-slate-900 hover:text-white"
           >
             FAQ
           </button>
