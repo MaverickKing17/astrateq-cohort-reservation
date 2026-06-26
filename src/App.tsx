@@ -162,6 +162,7 @@ export default function App() {
         {/* 6. Interactive Package/Tier Validation */}
         <TierSelection
           mode={mode}
+          score={diagnostic.score}
           selectedTierId={selectedTierId}
           onSelectTier={setSelectedTierId}
           onTriggerEvent={triggerEvent}

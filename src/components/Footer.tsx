@@ -47,11 +47,13 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Logo Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded bg-gradient-to-br from-cyan-500 to-sky-600 text-white">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
-              <span className="font-display font-extrabold text-white">Astrateq Gadgets</span>
+            <div className="flex items-center">
+              <img 
+                src="https://i.ibb.co/zhgDcPJM/Astrateq.png" 
+                alt="Astrateq Gadgets" 
+                className="h-11 w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <p className="text-[11px] leading-relaxed text-slate-400">
               Developing privacy-first driver readiness intelligence optimized for Ontario corridors and broader Canadian environments.

@@ -125,15 +125,23 @@ export default function ReservationForm({
           <form onSubmit={handleFormSubmit} className="space-y-6" id="reservation-html-form">
             
             {/* Dynamic Active Selection Indicator */}
-            <div className="rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-between">
-              <div>
-                <span className="text-[10px] text-slate-400 font-mono uppercase block">Active Selection</span>
-                <span className="font-display font-bold text-sm text-slate-900">{activeTier.name}</span>
+            <div className="rounded-xl bg-slate-50 border border-slate-100 p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] text-slate-400 font-mono uppercase block">Selected Tier</span>
+                  <span className="font-display font-bold text-sm text-slate-900">{activeTier.name}</span>
+                </div>
+                <div className="text-right">
+                  <span className="text-[10px] text-slate-400 font-mono uppercase block">Pricing Terms</span>
+                  <span className="font-mono text-xs font-bold text-cyan-700">
+                    {mode === 'mode-b' ? activeTier.deposit : 'No Payment Required'}
+                  </span>
+                </div>
               </div>
-              <div className="text-right">
-                <span className="text-[10px] text-slate-400 font-mono uppercase block">Pricing Terms</span>
-                <span className="font-mono text-xs font-bold text-cyan-700">
-                  {mode === 'mode-b' ? activeTier.deposit : 'No Payment Required'}
+              <div className="border-t border-slate-100 pt-2 flex items-center justify-between text-[11px] text-slate-500">
+                <span className="font-mono uppercase text-[9px] text-slate-400">Validation Status</span>
+                <span className="font-semibold text-emerald-600">
+                  Early-access interest recorded. No payment required during validation.
                 </span>
               </div>
             </div>
@@ -322,7 +330,7 @@ export default function ReservationForm({
 
             {/* Trust Micro-Copy */}
             <p className="text-[10px] text-slate-400 text-center uppercase tracking-wider font-semibold">
-              Secure Pre-Launch Validation · Fully Refundable if active · Designed in Canada
+              No payment required during validation · Not a final product purchase · Canadian driver cohort
             </p>
 
           </form>

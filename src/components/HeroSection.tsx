@@ -1,4 +1,4 @@
-import { CheckCircle2, ShieldCheck, HelpCircle, ArrowRight, Gauge, Cpu, MapPin, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, ArrowRight, Gauge, Cpu, MapPin, AlertTriangle, Sparkles } from 'lucide-react';
 import { FunnelMode, DiagnosticResult } from '../types';
 
 interface HeroSectionProps {
@@ -14,7 +14,50 @@ export default function HeroSection({
   onScrollToForm,
   onTriggerEvent,
 }: HeroSectionProps) {
-  const { score, classification, confidence, riskProfile, region, vehicleType } = diagnostic;
+  const { score, region, vehicleType } = diagnostic;
+
+  // Dynamic Score Range logic based on user guidelines
+  const getScoreAttributes = (s: number) => {
+    if (s >= 90) {
+      return {
+        scoreLabel: 'Exceptional Readiness',
+        recommendedTier: 'Founder Priority Allocation',
+        confidence: 'Very High',
+        riskProfile: 'Low-to-Moderate Seasonal Risk',
+        badgeColor: 'bg-emerald-500 text-slate-950',
+        ringColor: 'text-emerald-400 stroke-emerald-400',
+      };
+    } else if (s >= 75) {
+      return {
+        scoreLabel: 'High Readiness',
+        recommendedTier: 'Guardian Pro Interest',
+        confidence: 'High',
+        riskProfile: 'Highway / Seasonal Considerations',
+        badgeColor: 'bg-cyan-500 text-slate-950',
+        ringColor: 'text-cyan-400 stroke-cyan-400',
+      };
+    } else if (s >= 60) {
+      return {
+        scoreLabel: 'Moderate Readiness',
+        recommendedTier: 'Readiness Access',
+        confidence: 'Moderate',
+        riskProfile: 'Mixed Driving Readiness Review',
+        badgeColor: 'bg-indigo-500 text-white',
+        ringColor: 'text-indigo-400 stroke-indigo-400',
+      };
+    } else {
+      return {
+        scoreLabel: 'Needs Attention',
+        recommendedTier: 'Standard Validation Queue',
+        confidence: 'Needs Review',
+        riskProfile: 'Elevated Readiness Concerns',
+        badgeColor: 'bg-amber-500 text-slate-950',
+        ringColor: 'text-amber-400 stroke-amber-400',
+      };
+    }
+  };
+
+  const attributes = getScoreAttributes(score);
 
   // Circle path mathematics for score ring
   const radius = 32;
@@ -22,26 +65,8 @@ export default function HeroSection({
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
   const handleCtaClick = () => {
-    onTriggerEvent('primary_cta_clicked', { mode, score, classification });
+    onTriggerEvent('primary_cta_clicked', { mode, score, classification: attributes.recommendedTier });
     onScrollToForm();
-  };
-
-  // Color mappings based on score classification
-  const getScoreColor = () => {
-    if (score >= 90) return 'text-emerald-400 stroke-emerald-400';
-    if (score >= 70) return 'text-cyan-400 stroke-cyan-400';
-    return 'text-amber-400 stroke-amber-400';
-  };
-
-  const getConfidenceBadge = () => {
-    switch (confidence) {
-      case 'High':
-        return <span className="text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded text-[11px] font-semibold">High</span>;
-      case 'Moderate':
-        return <span className="text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded text-[11px] font-semibold">Moderate</span>;
-      default:
-        return <span className="text-rose-400 bg-rose-500/10 border border-rose-500/20 px-2 py-0.5 rounded text-[11px] font-semibold">Needs Review</span>;
-    }
   };
 
   return (
@@ -106,8 +131,8 @@ export default function HeroSection({
               <div>
                 <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-4">
                   <h3 className="text-xs font-bold uppercase tracking-widest text-cyan-400">Your Readiness Result Summary</h3>
-                  <span className="px-2 py-1 bg-cyan-500 text-slate-950 text-[10px] font-black rounded uppercase shrink-0">
-                    {confidence} Confidence
+                  <span className={`px-2.5 py-1 text-[10px] font-black rounded uppercase shrink-0 transition-all duration-300 ${attributes.badgeColor}`}>
+                    {attributes.confidence} Confidence
                   </span>
                 </div>
 
@@ -128,7 +153,7 @@ export default function HeroSection({
                         cx="40"
                         cy="40"
                         r={radius}
-                        className={`fill-none transition-all duration-1000 ${getScoreColor()}`}
+                        className={`fill-none transition-all duration-500 ${attributes.ringColor}`}
                         strokeWidth="6"
                         strokeDasharray={circumference}
                         strokeDashoffset={strokeDashoffset}
@@ -143,8 +168,12 @@ export default function HeroSection({
                   </div>
                   <div className="ml-4 text-left">
                     <span className="text-[9px] text-slate-400 font-mono tracking-wider uppercase block">Active Rating</span>
-                    <h3 className="font-display text-sm font-bold text-white">Vehicle Readiness</h3>
-                    <p className="text-[11px] text-slate-400">{score >= 80 ? 'Optimal GTA Calibration' : 'Queue tier'}</p>
+                    <h3 className="font-display text-sm font-bold text-white transition-colors duration-300">
+                      {attributes.scoreLabel}
+                    </h3>
+                    <p className="text-[11px] text-slate-400">
+                      {score >= 75 ? 'Optimal GTA Calibration' : 'Validation Queue Tier'}
+                    </p>
                   </div>
                 </div>
 
@@ -155,16 +184,16 @@ export default function HeroSection({
                     <p className="text-2xl font-mono font-bold text-white">{score}/100</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[10px] text-slate-500 uppercase font-bold">Classification</p>
-                    <p className="text-sm font-semibold text-white truncate">{classification.replace(' Cohort', '')}</p>
+                    <p className="text-[10px] text-slate-500 uppercase font-bold">Recommended Cohort</p>
+                    <p className="text-xs font-semibold text-white leading-tight mt-0.5">{attributes.recommendedTier}</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] text-slate-500 uppercase font-bold">Risk Profile</p>
-                    <p className="text-sm font-semibold text-white">{riskProfile}</p>
+                    <p className="text-xs font-semibold text-white leading-tight mt-0.5">{attributes.riskProfile}</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-[10px] text-slate-500 uppercase font-bold">Region Context</p>
-                    <p className="text-sm font-semibold text-white">{region}</p>
+                    <p className="text-xs font-semibold text-white leading-tight mt-0.5">{region}</p>
                   </div>
                 </div>
               </div>
@@ -198,34 +227,23 @@ export default function HeroSection({
                 />
                 {/* Ambient vignette gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
-                <div className="absolute inset-0 bg-slate-950/10" />
-
-                {/* Local Climate Overlays */}
-                <div className="absolute top-4 right-4 flex flex-col items-end space-y-1">
-                  <span className="text-[10px] bg-slate-950/85 text-slate-200 border border-slate-800/60 font-mono px-2 py-0.5 rounded backdrop-blur-xs shadow-sm">
-                    GTA Corridor Tested
-                  </span>
-                  <span className="text-[10px] bg-sky-950/85 text-cyan-300 border border-cyan-800/40 font-mono px-2 py-0.5 rounded backdrop-blur-xs shadow-sm">
-                    Winter-Proof Ready
-                  </span>
+                
+                {/* Absolute overlay tag */}
+                <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800/60 rounded px-2.5 py-1 text-[9px] uppercase tracking-wider font-semibold text-cyan-400 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span>Validation active</span>
                 </div>
               </div>
-
-              {/* Text Context Content */}
-              <div className="p-5 bg-slate-950 relative border-t border-slate-900">
-                <h3 className="font-display font-bold text-white text-sm mb-1 leading-snug">
-                  Intelligent Protection.<br />Seamless Integration.
-                </h3>
-                <p className="text-[11px] text-slate-400 mb-4 leading-normal">
-                  Advanced vehicle intelligence designed for Ontario highway speeds and Canadian winter roads.
-                </p>
-
-                <div className="flex items-center space-x-2 border border-cyan-500/20 rounded-lg p-2.5 bg-cyan-950/20">
-                  <ShieldCheck className="h-4 w-4 text-cyan-400 shrink-0" />
-                  <span className="text-[10px] font-semibold text-cyan-300 leading-tight">
-                    Engineered for Canadian drivers and real-world conditions.
-                  </span>
+              
+              {/* Small info box at bottom */}
+              <div className="p-4 bg-slate-900/90 border-t border-slate-800">
+                <div className="flex items-center justify-between text-[11px] font-semibold text-slate-300">
+                  <span>Ontario Regional Sandbox</span>
+                  <span className="text-[10px] text-cyan-400">ACTIVE</span>
                 </div>
+                <p className="text-[10px] text-slate-500 mt-1 leading-normal">
+                  Testing vehicle CAN network signals in winter conditions to validate localized telemetry algorithms.
+                </p>
               </div>
             </div>
           </div>

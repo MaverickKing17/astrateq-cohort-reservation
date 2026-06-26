@@ -16,18 +16,16 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo and Tagline */}
         <div 
-          className="flex cursor-pointer items-center space-x-3" 
+          className="flex cursor-pointer items-center" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           id="header-logo-container"
         >
-          <div className="w-8 h-8 bg-cyan-500 rounded-sm flex items-center justify-center font-bold text-slate-950 shrink-0">
-            A
-          </div>
-          <div>
-            <span className="text-xl font-bold tracking-tight uppercase text-white">
-              Astrateq <span className="text-cyan-400">Gadgets</span>
-            </span>
-          </div>
+          <img 
+            src="https://i.ibb.co/zhgDcPJM/Astrateq.png" 
+            alt="Astrateq Gadgets" 
+            className="h-11 w-auto object-contain"
+            referrerPolicy="no-referrer"
+          />
         </div>
 
         {/* Desktop Navigation Links */}

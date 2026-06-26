@@ -1,8 +1,9 @@
-import { Check, AlertCircle, Sparkles, ChevronRight } from 'lucide-react';
+import { Check, AlertCircle, Sparkles, ChevronRight, Info } from 'lucide-react';
 import { FunnelMode, Tier } from '../types';
 
 interface TierSelectionProps {
   mode: FunnelMode;
+  score: number;
   selectedTierId: string;
   onSelectTier: (tierId: string) => void;
   onTriggerEvent: (name: string, meta: Record<string, any>) => void;
@@ -10,6 +11,7 @@ interface TierSelectionProps {
 
 export default function TierSelection({
   mode,
+  score,
   selectedTierId,
   onSelectTier,
   onTriggerEvent,
@@ -19,17 +21,19 @@ export default function TierSelection({
     {
       id: 'tier-1',
       name: 'Readiness Access',
-      tagline: 'Basic Validation Queue',
-      bestFor: 'Drivers who want updates and readiness insights.',
+      tagline: 'Pre-launch Validation Pathway',
+      bestFor: 'Drivers who want updates and readiness insights before committing to deeper early-access interest.',
       includes: [
         'Diagnostic result record',
-        'Early-access updates',
+        'Pre-launch readiness updates',
         'Compatibility interest signal',
+        'Privacy-first program updates',
       ],
       notGuaranteed: [
-        'No priority queue slot',
-        'No hardware allocation reserved',
-        'Launch is pending validation',
+        'Hardware access',
+        'Compatibility approval',
+        'Launch timing',
+        'Final pricing',
       ],
       depositAmount: 0,
     },
@@ -37,17 +41,19 @@ export default function TierSelection({
       id: 'tier-2',
       name: 'Guardian Pro Interest',
       tagline: 'Founding Cohort Choice',
-      bestFor: 'Drivers interested in future hardware + readiness intelligence.',
+      bestFor: 'Drivers interested in future Astrateq hardware plus privacy-first readiness intelligence.',
       includes: [
         'Priority compatibility review',
         'Founding member pricing consideration',
         'Product feedback influence',
         'Early rollout notifications',
+        'Future hardware interest signal',
       ],
       notGuaranteed: [
-        'Hardware availability pending rollout',
-        'Pricing is subject to final production cost',
-        'Compatibility depends on final OBD validation',
+        'Hardware delivery',
+        'Final product availability',
+        'Guaranteed pricing',
+        'Guaranteed compatibility',
       ],
       depositAmount: 49,
     },
@@ -55,21 +61,34 @@ export default function TierSelection({
       id: 'tier-3',
       name: 'Founder Priority Allocation',
       tagline: 'Maximum Priority Signal',
-      bestFor: 'High-intent users who want strongest early-access consideration.',
+      bestFor: 'High-intent users who want the strongest early-access consideration if the pilot moves forward.',
       includes: [
+        'Highest early-access interest signal',
         'Priority validation review',
         'Private rollout updates',
-        'Highest early-access interest signal',
         'Product direction feedback',
+        'Early pricing consideration if rollout proceeds',
       ],
       notGuaranteed: [
-        'Supplier logistics timing is not guaranteed',
-        'No guaranteed delivery dates',
-        'Rollout depends on full cohort sign-up goals',
+        'Guaranteed access',
+        'Guaranteed hardware',
+        'Guaranteed pricing',
+        'Confirmed delivery date',
+        'Certified safety status',
       ],
       depositAmount: 99,
     },
   ];
+
+  // Dynamic recommendation based on score
+  const getRecommendedTierId = (s: number): string => {
+    if (s >= 90) return 'tier-3';
+    if (s >= 75) return 'tier-2';
+    if (s >= 60) return 'tier-1';
+    return ''; // Under 60 doesn't get a premium cohort recommendation
+  };
+
+  const recommendedTierId = getRecommendedTierId(score);
 
   const handleTierSelect = (tier: Tier) => {
     onSelectTier(tier.id);
@@ -86,23 +105,53 @@ export default function TierSelection({
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-semibold tracking-wider text-cyan-700 uppercase font-mono">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="text-xs font-bold tracking-wider text-cyan-700 uppercase font-mono">
             Cohort Packaging
           </span>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Pre-Launch Cohort Options
+            Choose your founding cohort path
           </h2>
-          <p className="mt-4 text-sm text-slate-600">
-            Astrateq Gadgets provides clear, transparent pathways depending on your early-access preferences. Select a validation tier below to customize your reservation.
+          <p className="mt-4 text-sm text-slate-600 leading-relaxed">
+            Your readiness score helps recommend a cohort pathway, but you can choose the level of early-access interest that best reflects your intent. Each tier helps Astrateq Gadgets understand Canadian driver demand, compatibility priorities, and rollout planning.
           </p>
+        </div>
+
+        {/* Comparison Row (Section 5 requirement) */}
+        <div className="mb-12 max-w-5xl mx-auto bg-white rounded-xl border border-slate-200/80 p-5 shadow-xs">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-3 text-center md:text-left">
+            Cohort Path Quick Comparison
+          </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div className="flex items-start space-x-2.5 p-2 rounded-lg bg-slate-50/50">
+              <div className="w-2 h-2 rounded-full bg-slate-400 mt-1.5 shrink-0" />
+              <div>
+                <strong className="text-slate-800 block">Readiness Access:</strong>
+                <span className="text-slate-500">Best for staying informed and diagnostic records.</span>
+              </div>
+            </div>
+            <div className="flex items-start space-x-2.5 p-2 rounded-lg bg-slate-50/50">
+              <div className="w-2 h-2 rounded-full bg-cyan-500 mt-1.5 shrink-0" />
+              <div>
+                <strong className="text-slate-800 block">Guardian Pro Interest:</strong>
+                <span className="text-slate-500">Best for drivers interested in future hardware and readiness intelligence.</span>
+              </div>
+            </div>
+            <div className="flex items-start space-x-2.5 p-2 rounded-lg bg-slate-50/50">
+              <div className="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
+              <div>
+                <strong className="text-slate-800 block">Founder Priority Allocation:</strong>
+                <span className="text-slate-500">Best for high-intent users who want strongest early-access consideration.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
           {tiers.map((tier) => {
             const isSelected = selectedTierId === tier.id;
-            const isRecommended = tier.id === 'tier-2';
+            const isRecommended = recommendedTierId === tier.id;
             
             return (
               <div
@@ -110,16 +159,18 @@ export default function TierSelection({
                 onClick={() => handleTierSelect(tier)}
                 className={`relative flex flex-col justify-between rounded-2xl border-2 p-6 cursor-pointer transition-all duration-300 group ${
                   isSelected
-                    ? 'border-cyan-600 bg-cyan-50/50 shadow-lg shadow-cyan-100'
-                    : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50 shadow-sm'
-                }`}
+                    ? 'border-cyan-600 bg-cyan-50/40 shadow-lg shadow-cyan-100/60'
+                    : isRecommended
+                    ? 'border-cyan-500/50 bg-white shadow-md shadow-cyan-500/5 hover:border-cyan-500'
+                    : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50 shadow-xs'
+                } ${isRecommended ? 'ring-2 ring-cyan-400/20' : ''}`}
                 id={`tier-selection-${tier.id}`}
               >
-                {/* Popular Badge */}
+                {/* Recommended Badge */}
                 {isRecommended && (
-                  <span className="absolute -top-3 right-6 inline-flex items-center space-x-1 rounded-full bg-cyan-600 px-3 py-0.5 text-[10px] font-extrabold text-white tracking-wider uppercase">
-                    <Sparkles className="h-3 w-3 animate-pulse" />
-                    <span>Highly Requested</span>
+                  <span className="absolute -top-3.5 left-6 inline-flex items-center space-x-1 rounded-full bg-cyan-600 border border-cyan-500 px-3 py-0.5 text-[9px] font-extrabold text-white tracking-widest uppercase">
+                    <Sparkles className="h-2.5 w-2.5 animate-pulse text-white" />
+                    <span>Recommended based on your readiness result</span>
                   </span>
                 )}
 
@@ -142,6 +193,8 @@ export default function TierSelection({
                     <div className={`h-5 w-5 rounded-full border flex items-center justify-center transition-all ${
                       isSelected 
                         ? 'border-cyan-600 bg-cyan-600 text-white' 
+                        : isRecommended
+                        ? 'border-cyan-400 group-hover:border-cyan-500 text-transparent'
                         : 'border-slate-300 group-hover:border-slate-400 text-transparent'
                     }`}>
                       {isSelected && <Check className="h-3.5 w-3.5 stroke-[3]" />}
@@ -212,10 +265,18 @@ export default function TierSelection({
                     className={`w-full py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1 transition-all ${
                       isSelected
                         ? 'bg-slate-900 text-white shadow-md shadow-slate-900/10'
+                        : isRecommended
+                        ? 'bg-cyan-50 hover:bg-cyan-100 text-cyan-800 border border-cyan-200'
                         : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
                     }`}
                   >
-                    <span>{isSelected ? 'Active Selection' : 'Choose This Cohort'}</span>
+                    <span>
+                      {isSelected 
+                        ? 'Active Selection' 
+                        : isRecommended 
+                        ? 'Select Recommended Option' 
+                        : `Select ${tier.name}`}
+                    </span>
                     <ChevronRight className="h-3.5 w-3.5" />
                   </button>
                 </div>
