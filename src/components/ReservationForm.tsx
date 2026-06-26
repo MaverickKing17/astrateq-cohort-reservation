@@ -111,6 +111,10 @@ export default function ReservationForm({
           
           {/* Header */}
           <div className="text-center mb-8">
+            {/* Step Label */}
+            <span className="text-[10px] font-extrabold tracking-widest uppercase text-[#00BFEF] block mb-2.5 font-mono">
+              Step 4: Record Your Interest
+            </span>
             <span className="text-[10px] font-bold text-[#0B7CFF] uppercase tracking-widest bg-[#EEF6FB] border border-[#D7E7F5] px-3.5 py-1.5 rounded-full shadow-xs">
               Cohort Validation Portal
             </span>
@@ -125,24 +129,32 @@ export default function ReservationForm({
           <form onSubmit={handleFormSubmit} className="space-y-6" id="reservation-html-form">
             
             {/* Dynamic Active Selection Indicator */}
-            <div className="rounded-2xl bg-[#F1FAFF] border border-[#BFE7FA] p-6 space-y-3.5 shadow-xs relative overflow-hidden">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div>
-                  <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Selected Tier</span>
-                  <span className="font-display font-bold text-base text-[#081A33]">{activeTier.name}</span>
-                </div>
-                <div className="flex flex-col sm:items-end">
-                  <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Pricing Terms</span>
-                  <span className="font-mono text-sm font-black text-[#0B7CFF]">
-                    {mode === 'mode-b' ? activeTier.deposit : 'No Payment Required'}
-                  </span>
-                </div>
+            <div className="rounded-2xl bg-[#F3F9FF] border-2 border-[#00BFEF]/40 p-6 shadow-md relative overflow-hidden flex items-start gap-4">
+              <div className="p-2.5 rounded-xl bg-[#E2F5FF] text-[#00AEEF] border border-[#BFE7FA] shrink-0 mt-1">
+                <ShieldCheck className="h-6 w-6 stroke-[2]" />
               </div>
-              <div className="border-t border-[#BFE7FA] pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-[11px] text-[#475A70]">
-                <span className="font-mono uppercase text-[9px] text-[#7B8CA3] font-bold">Validation Status</span>
-                <div className="flex items-center space-x-1.5 bg-[#EAFBF4] text-[#047857] px-2.5 py-1 rounded-full border border-emerald-100/80 font-semibold text-[10px] shadow-2xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#16B981] animate-pulse" />
-                  <span>No payment required today</span>
+              <div className="flex-1 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#00BFEF]/10 pb-3">
+                  <div>
+                    <span className="text-[10px] text-[#00AEEF] font-mono uppercase block font-extrabold tracking-wider">Active Selection</span>
+                    <h3 className="font-display font-extrabold text-lg text-[#081A33]">{activeTier.name}</h3>
+                  </div>
+                  <div className="flex flex-col sm:items-end">
+                    <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Status & Terms</span>
+                    <span className="font-mono text-sm font-black text-[#0B7CFF]">
+                      {mode === 'mode-b' ? activeTier.deposit : '$0 Today'}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-[#475A70]">
+                  <div className="flex items-center space-x-1.5 bg-[#EAFBF4] text-[#047857] px-3 py-1 rounded-full border border-emerald-100/80 font-bold text-[10px] shadow-2xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#16B981] animate-pulse" />
+                    <span>{mode === 'mode-b' ? (activeTier.price === 0 ? 'No payment required today' : '100% Refundable Deposit') : 'No payment required today'}</span>
+                  </div>
+                  <span className="text-[10px] text-[#7B8CA3] font-bold uppercase tracking-wider bg-white px-2 py-0.5 rounded border border-[#D7E7F5]/80 font-mono">
+                    Pre-launch Validation
+                  </span>
                 </div>
               </div>
             </div>
@@ -304,6 +316,22 @@ export default function ReservationForm({
                 <label htmlFor="agreeTerms" className="leading-relaxed cursor-pointer select-none">
                   I understand this is a pre-launch validation signal. Submitting does not guarantee hardware availability, compatibility, launch timing, or future pricing. Deposits (if any) are fully refundable as per the early validation terms.
                 </label>
+              </div>
+
+              {/* Trust strip above final CTA */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 pb-1 text-center border-t border-[#CFE0EF]/60">
+                <div className="flex items-center justify-center space-x-1.5 text-[11px] text-[#7B8CA3] font-medium">
+                  <Lock className="h-3.5 w-3.5 text-[#00BFEF] shrink-0" />
+                  <span>Privacy-first encryption</span>
+                </div>
+                <div className="flex items-center justify-center space-x-1.5 text-[11px] text-[#7B8CA3] font-medium">
+                  <ShieldCheck className="h-3.5 w-3.5 text-[#16B981] shrink-0" />
+                  <span>Muted notifications only</span>
+                </div>
+                <div className="flex items-center justify-center space-x-1.5 text-[11px] text-[#7B8CA3] font-medium">
+                  <Sparkles className="h-3.5 w-3.5 text-[#0B7CFF] shrink-0" />
+                  <span>Canadian validation focus</span>
+                </div>
               </div>
 
               {/* Action Submit Button */}

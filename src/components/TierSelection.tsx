@@ -106,6 +106,10 @@ export default function TierSelection({
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
+          {/* Step Label */}
+          <span className="text-[10px] font-extrabold tracking-widest uppercase text-[#00BFEF] block mb-2.5 font-mono">
+            Step 3: Choose Your Cohort Path
+          </span>
           <span className="text-xs font-bold tracking-widest text-[#0B7CFF] uppercase font-mono bg-white px-3 py-1 rounded-full border border-[#D7E7F5]">
             Cohort Packaging
           </span>
@@ -157,25 +161,35 @@ export default function TierSelection({
               <div
                 key={tier.id}
                 onClick={() => handleTierSelect(tier)}
-                className={`relative flex flex-col justify-between rounded-3xl border-2 p-7 cursor-pointer transition-all duration-300 group ${
+                className={`relative flex flex-col justify-between rounded-3xl border-2 p-[30px] cursor-pointer transition-all duration-300 group ${
                   isSelected
-                    ? 'border-[#00BFEF] bg-gradient-to-b from-[#F3F9FF] to-[#EAF8FF] shadow-[0_20px_60px_rgba(0,191,239,0.18)] scale-[1.01]'
+                    ? 'border-[#00BFEF] bg-[#F1FAFF] shadow-[0_20px_50px_rgba(0,191,239,0.18)] scale-[1.01] ring-1 ring-[#00BFEF]/30'
                     : isRecommended
                     ? 'border-[#A9D8F5] bg-gradient-to-b from-white to-[#F8FBFF] shadow-[0_10px_28px_rgba(8,26,51,0.07)] hover:border-[#00BFEF] hover:shadow-[0_18px_45px_rgba(8,26,51,0.12)] hover:translate-y-[-2px]'
                     : 'border-[#CFE0EF] bg-white shadow-[0_10px_28px_rgba(8,26,51,0.07)] hover:border-[#A9D8F5] hover:shadow-[0_18px_45px_rgba(8,26,51,0.12)] hover:translate-y-[-2px]'
                 }`}
                 id={`tier-selection-${tier.id}`}
               >
+                {/* Selected inner banner: Recommended from your readiness result */}
+                {isSelected && (
+                  <div className="bg-gradient-to-r from-[#00BFEF] to-[#0B7CFF] text-white font-extrabold text-[10px] py-2.5 px-6 rounded-t-[22px] -mx-[30px] -mt-[30px] mb-6 flex items-center justify-between uppercase tracking-widest font-mono shadow-xs">
+                    <span>Recommended from your readiness result</span>
+                    <span className="inline-flex h-5.5 w-5.5 items-center justify-center rounded-full bg-white text-[#0B7CFF] shadow-xs shrink-0">
+                      <Check className="h-3.5 w-3.5 stroke-[3.5]" />
+                    </span>
+                  </div>
+                )}
+
                 {/* Recommended / Selected Badge */}
-                {isRecommended && (
+                {isRecommended && !isSelected && (
                   <span className="absolute -top-3.5 left-6 inline-flex items-center space-x-1 rounded-full bg-[#0B7CFF] border border-blue-600 px-3 py-1 text-[9px] font-extrabold text-white tracking-widest uppercase shadow-sm">
                     <Sparkles className="h-2.5 w-2.5 animate-pulse text-white" />
                     <span>Recommended Path</span>
                   </span>
                 )}
 
-                {isSelected && !isRecommended && (
-                  <span className="absolute -top-3.5 left-6 inline-flex items-center space-x-1 rounded-full bg-[#00BFEF] border border-cyan-500 px-3 py-1 text-[9px] font-extrabold text-white tracking-widest uppercase shadow-sm">
+                {isSelected && (
+                  <span className="absolute -top-3.5 left-6 inline-flex items-center space-x-1 rounded-full bg-[#00BFEF] border border-cyan-400 px-3 py-1 text-[9px] font-extrabold text-white tracking-widest uppercase shadow-sm z-10">
                     <span>Selected Pathway</span>
                   </span>
                 )}
@@ -281,9 +295,7 @@ export default function TierSelection({
                   >
                     <span>
                       {isSelected 
-                        ? 'Active Selection' 
-                        : isRecommended 
-                        ? 'Select Recommended Option' 
+                        ? `Selected: ${tier.name}` 
                         : `Select ${tier.name}`}
                     </span>
                     <ChevronRight className={`h-4 w-4 transition-transform ${isSelected ? 'group-hover:translate-x-0.5' : ''}`} />

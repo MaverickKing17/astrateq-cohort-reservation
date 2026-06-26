@@ -31,9 +31,9 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
           <button
             onClick={handleCtaClick}
             id="footer-primary-cta"
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] px-8 py-4 text-xs font-bold text-white shadow-lg shadow-blue-500/20 hover:opacity-95 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] px-8 py-4 text-xs font-bold text-white shadow-lg shadow-blue-500/20 hover:opacity-95 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer uppercase tracking-wider font-mono"
           >
-            {mode === 'mode-b' ? 'Reserve My Founding Cohort Position' : 'Record My Early-Access Interest'}
+            Record My Early-Access Interest
           </button>
 
           <p className="mt-4 text-[10px] text-slate-400 uppercase tracking-wider font-semibold">

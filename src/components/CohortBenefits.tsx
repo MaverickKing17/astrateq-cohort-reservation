@@ -12,6 +12,7 @@ export default function CohortBenefits() {
       iconBg: 'bg-[#EAF7FF]',
       iconBorder: 'border-[#BFE7FA]',
       iconColor: 'text-[#00AEEF]',
+      chipText: 'Priority signal',
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ export default function CohortBenefits() {
       iconBg: 'bg-[#EAF7FF]',
       iconBorder: 'border-[#BFE7FA]',
       iconColor: 'text-[#00AEEF]',
+      chipText: 'Early access',
     },
     {
       id: 3,
@@ -34,6 +36,7 @@ export default function CohortBenefits() {
       iconBg: 'bg-[#EAFBF4]',
       iconBorder: 'border-emerald-100',
       iconColor: 'text-[#16B981]',
+      chipText: 'Pricing consideration',
     },
     {
       id: 4,
@@ -41,10 +44,11 @@ export default function CohortBenefits() {
       description: 'Your input helps shape features, readiness categories, and Canadian driver priorities.',
       detail: 'Collaborate directly with product design by participating in private surveys tailored for Canadian weather.',
       icon: Sparkles,
-      accentColor: 'bg-purple-400',
-      iconBg: 'bg-purple-50',
-      iconBorder: 'border-purple-100',
-      iconColor: 'text-purple-600',
+      accentColor: 'bg-[#00BFEF]',
+      iconBg: 'bg-[#EAF7FF]',
+      iconBorder: 'border-[#BFE7FA]',
+      iconColor: 'text-[#00AEEF]',
+      chipText: 'Product influence',
     },
     {
       id: 5,
@@ -56,6 +60,7 @@ export default function CohortBenefits() {
       iconBg: 'bg-[#EAF7FF]',
       iconBorder: 'border-[#BFE7FA]',
       iconColor: 'text-[#00AEEF]',
+      chipText: 'Private updates',
     },
   ];
 
@@ -71,13 +76,13 @@ export default function CohortBenefits() {
           <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-[#081A33] sm:text-4xl">
             Founding Driver Cohort Benefits
           </h2>
-          <p className="mt-4 text-sm text-[#475A70]">
+          <p className="mt-4 text-sm text-[#475A70] leading-relaxed">
             Astrateq Gadgets is currently in pre-launch validation. Our founding driver cohort helps shape privacy-first driver readiness intelligence for Canadian roads.
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch">
           {benefits.map((benefit) => {
             const Icon = benefit.icon;
             return (
@@ -89,20 +94,26 @@ export default function CohortBenefits() {
                 {/* Subtle top accent line */}
                 <div className={`absolute top-0 left-0 right-0 h-[4px] ${benefit.accentColor}`} />
                 
-                <div>
+                <div className="flex-1 flex flex-col">
                   {/* Larger icon badge */}
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border mb-5 ${benefit.iconBg} ${benefit.iconBorder} ${benefit.iconColor} shadow-xs transition-transform duration-300 group-hover:scale-105`}>
-                    <Icon className="h-6 w-6" />
+                  <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl border mb-5 ${benefit.iconBg} ${benefit.iconBorder} ${benefit.iconColor} shadow-xs transition-transform duration-300 group-hover:scale-105`}>
+                    <Icon className="h-7 w-7 stroke-[2]" />
                   </div>
-                  <h3 className="font-display font-bold text-[#081A33] text-sm leading-snug mb-2 group-hover:text-[#0B7CFF] transition-colors">
+                  <h3 className="font-display font-extrabold text-[#081A33] text-[15px] leading-snug mb-2 group-hover:text-[#0B7CFF] transition-colors">
                     {benefit.title}
                   </h3>
-                  <p className="text-xs text-[#475A70] leading-relaxed mb-3">
+                  <p className="text-xs text-[#475A70] leading-relaxed mb-4">
                     {benefit.description}
                   </p>
                 </div>
-                <div className="pt-3 border-t border-[#D7E7F5]/60 mt-4 text-[10px] text-[#7B8CA3] leading-normal">
-                  {benefit.detail}
+                
+                <div className="mt-4 space-y-3">
+                  <div className="inline-flex items-center rounded-md bg-[#EEF6FB] border border-[#CFE0EF]/60 px-2 py-0.5 text-[9px] font-bold text-[#081A33] uppercase tracking-wide">
+                    {benefit.chipText}
+                  </div>
+                  <div className="pt-3 border-t border-[#D7E7F5]/60 text-[10px] text-[#7B8CA3] leading-relaxed">
+                    {benefit.detail}
+                  </div>
                 </div>
               </div>
             );

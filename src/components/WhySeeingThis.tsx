@@ -5,6 +5,10 @@ export default function WhySeeingThis() {
     <section className="bg-[#EEF6FB] py-20 border-b border-[#D7E7F5]" id="why-us">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
+          {/* Step Label */}
+          <span className="text-[10px] font-extrabold tracking-widest uppercase text-[#00BFEF] block mb-2.5 font-mono">
+            Step 2: Why You Qualify
+          </span>
           <span className="text-xs font-bold tracking-widest text-[#0B7CFF] uppercase font-mono bg-white px-3 py-1 rounded-full border border-[#D7E7F5] shadow-xs">
             Direct Invitation Only
           </span>

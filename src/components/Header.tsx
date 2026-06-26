@@ -77,7 +77,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
             onClick={onScrollToForm}
             className="rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] hover:opacity-95 text-white font-bold px-5 py-2.5 text-xs tracking-wider uppercase transition-all duration-250 shadow-md shadow-blue-500/15 active:scale-95 cursor-pointer"
           >
-            {mode === 'mode-b' ? 'Reserve Now' : 'Record Interest'}
+            {mode === 'mode-b' ? 'Record Early-Access Interest' : 'Record My Early-Access Interest'}
           </button>
         </div>
 
@@ -150,7 +150,7 @@ export default function Header({ mode, onScrollToForm, onScrollToSection }: Head
               }}
               className="block w-full text-center rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md cursor-pointer"
             >
-              {mode === 'mode-b' ? 'Reserve Now' : 'Record Interest'}
+              {mode === 'mode-b' ? 'Record Early-Access Interest' : 'Record My Early-Access Interest'}
             </button>
           </div>
         </div>

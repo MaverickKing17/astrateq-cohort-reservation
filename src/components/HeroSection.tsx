@@ -80,6 +80,11 @@ export default function HeroSection({
           
           {/* Left Column: Direct Response Core */}
           <div className="lg:col-span-5 flex flex-col justify-center text-left" id="hero-left">
+            {/* Step Label */}
+            <span className="text-[10px] font-extrabold tracking-widest uppercase text-[#00BFEF] block mb-2.5 font-mono">
+              Step 1: Your Result
+            </span>
+
             {/* Status Pill */}
             <div className="mb-6 inline-flex items-center space-x-2 self-start rounded-full border border-[#D7E7F5] bg-white px-3.5 py-1 text-xs font-semibold text-[#0B7CFF] shadow-xs">
               <CheckCircle2 className="h-4 w-4 text-[#16B981] shrink-0" />
@@ -104,11 +109,7 @@ export default function HeroSection({
                 onClick={handleCtaClick}
                 className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] text-white font-bold px-8 py-4 text-sm tracking-wider uppercase shadow-lg shadow-blue-500/20 hover:opacity-95 hover:scale-[1.01] hover:shadow-xl transition-all duration-200 active:scale-[0.99] group cursor-pointer"
               >
-                <span>
-                  {mode === 'mode-b'
-                    ? 'Reserve My Founding Cohort Position'
-                    : 'Record My Early-Access Interest'}
-                </span>
+                <span>Record My Early-Access Interest</span>
                 <ArrowRight className="h-4 w-4 text-white transition-transform group-hover:translate-x-1" />
               </button>
             </div>
