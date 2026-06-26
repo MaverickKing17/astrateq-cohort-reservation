@@ -1,5 +1,6 @@
 import { CheckCircle2, ShieldCheck, ArrowRight, Gauge, Cpu, MapPin, AlertTriangle, Sparkles } from 'lucide-react';
 import { FunnelMode, DiagnosticResult } from '../types';
+import canadianSuvHero from '../assets/images/canadian_suv_hero_1782491247177.jpg';
 
 interface HeroSectionProps {
   mode: FunnelMode;
@@ -227,8 +228,8 @@ export default function HeroSection({
               {/* Image Container with Gradients */}
               <div className="relative flex-1 min-h-[220px] overflow-hidden">
                 <img
-                  src="/src/assets/images/canadian_suv_hero_1782491247177.jpg"
-                  alt="Astrateq Canadian Driver Intelligence Silver SUV on road"
+                  src={canadianSuvHero}
+                  alt="Astrateq Canadian Driver Intelligence"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-103"
                   referrerPolicy="no-referrer"
                 />

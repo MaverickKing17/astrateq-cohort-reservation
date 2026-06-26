@@ -52,37 +52,42 @@ export default function PostSubmissionConfirmation({
 
           {/* Title & Copy */}
           <h2 className="font-display text-2xl font-bold text-[#081A33] sm:text-3xl mb-3">
-            Founding Cohort Interest Recorded
+            Early-Access Interest Recorded
           </h2>
           <p className="text-xs text-[#475A70] max-w-md mx-auto mb-8 leading-relaxed">
-            Your early-access interest has been received. A confirmation email has been sent with your selected cohort tier and validation status.
+            Your submission has been received. Astrateq Gadgets has recorded your selected cohort pathway for the Canadian pre-launch validation program.
           </p>
 
           {/* Summary Box */}
           <div className="rounded-2xl bg-[#F8FBFF] border border-[#D7E7F5] p-5 text-left text-xs space-y-3.5 mb-8 shadow-xs">
             <div className="flex items-center justify-between border-b border-[#D7E7F5] pb-2.5">
-              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Reservation Ref</span>
+              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Record ID</span>
               <span className="font-mono font-bold text-[#081A33]">{id}</span>
             </div>
 
             <div className="flex items-center justify-between border-b border-[#D7E7F5] pb-2.5">
-              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Selected Tier</span>
+              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Selected Pathway</span>
               <span className="font-display font-bold text-[#0B7CFF]">{getTierName()}</span>
             </div>
 
             <div className="flex items-center justify-between border-b border-[#D7E7F5] pb-2.5">
-              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Driver Email</span>
+              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Email Address</span>
               <span className="font-semibold text-[#475A70]">{email}</span>
             </div>
 
             <div className="flex items-center justify-between border-b border-[#D7E7F5] pb-2.5">
-              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Validation Status</span>
-              <span className="font-bold text-[#16B981]">{getValidationStatus()}</span>
+              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Vehicle Profile</span>
+              <span className="font-semibold text-[#475A70]">{vehicleType} {region ? `(${region})` : ''}</span>
+            </div>
+
+            <div className="flex items-center justify-between border-b border-[#D7E7F5] pb-2.5">
+              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Payment Status</span>
+              <span className="font-bold text-[#16B981]">No payment required today</span>
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Vehicle Profile</span>
-              <span className="font-semibold text-[#475A70] text-right">{vehicleType} ({region})</span>
+              <span className="text-[#7B8CA3] font-mono uppercase font-bold tracking-wider text-[10px]">Validation Mode</span>
+              <span className="font-semibold text-[#475A70]">Early-access interest only</span>
             </div>
           </div>
 
@@ -99,7 +104,7 @@ export default function PostSubmissionConfirmation({
                   1
                 </div>
                 <p>
-                  <strong className="text-[#081A33]">CAN-Bus Compatibility Screen:</strong> Astrateq engineers will review your vehicle model compatibility parameters against targeted rollout priorities.
+                  <strong className="text-[#081A33]">Vehicle Profile Evaluation:</strong> We will evaluate your vehicle profile parameters to determine compatibility prioritization for Astrateq’s software-led readiness insights.
                 </p>
               </li>
 
@@ -108,7 +113,7 @@ export default function PostSubmissionConfirmation({
                   2
                 </div>
                 <p>
-                  <strong className="text-[#081A33]">Private Rollout Bulletins:</strong> You will receive transparent development progress, supplier certifications, and validation goals directly.
+                  <strong className="text-[#081A33]">Pre-Launch Updates:</strong> You will receive transparent development progress, readiness validation goals, and localized intelligence insights.
                 </p>
               </li>
 
@@ -117,7 +122,7 @@ export default function PostSubmissionConfirmation({
                   3
                 </div>
                 <p>
-                  <strong className="text-[#081A33]">Co-Design Survey:</strong> We may invite you to private feature definition workshops focusing on specialized winter readiness priorities for Canadian climates.
+                  <strong className="text-[#081A33]">Co-Design Feedback:</strong> We may invite you to provide feedback on our software interface concepts, focusing on winter driver readiness priorities for Canadian roads.
                 </p>
               </li>
             </ul>
@@ -130,21 +135,22 @@ export default function PostSubmissionConfirmation({
               className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#475A70] text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors border border-[#D7E7F5] cursor-pointer shadow-xs"
             >
               <Calendar className="h-4 w-4 text-[#7B8CA3]" />
-              <span>Submit Another Reservation</span>
+              <span>Return to Diagnostic</span>
             </button>
 
             <button
-              onClick={handleShareClick}
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] text-white text-xs font-bold flex items-center justify-center space-x-1.5 transition-colors cursor-pointer shadow-md shadow-blue-500/15 hover:opacity-95"
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0B7CFF]/10 hover:bg-[#0B7CFF]/15 text-[#0B7CFF] text-xs font-bold flex items-center justify-center space-x-1.5 transition-colors cursor-pointer"
             >
-              <Share2 className="h-4 w-4 text-white" />
-              <span>Share Pre-Launch Program</span>
+              <span>Back to Home</span>
             </button>
           </div>
 
           {/* Transparent Trust Footnote */}
           <p className="text-[10px] text-[#7B8CA3] leading-relaxed mt-6 italic">
-            * This is a pre-launch validation signal, not a guarantee of hardware availability, compatibility, pricing, or delivery timing.
+            This is a pre-launch validation signal and does not guarantee product availability, hardware availability, compatibility, pricing, or launch timing.
           </p>
 
         </div>

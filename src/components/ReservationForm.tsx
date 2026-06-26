@@ -35,11 +35,11 @@ export default function ReservationForm({
       case 'tier-1':
         return { name: 'Readiness Access', price: 0, deposit: 'No Payment Needed' };
       case 'tier-2':
-        return { name: 'Guardian Pro Interest', price: 49, deposit: '$49 Refundable Deposit' };
+        return { name: 'Guardian Readiness Pro', price: 49, deposit: '$49 Refundable Deposit' };
       case 'tier-3':
-        return { name: 'Founder Priority Allocation', price: 99, deposit: '$99 Refundable Deposit' };
+        return { name: 'Founder Priority Review', price: 99, deposit: '$99 Refundable Deposit' };
       default:
-        return { name: 'Guardian Pro Interest', price: 49, deposit: '$49 Refundable Deposit' };
+        return { name: 'Guardian Readiness Pro', price: 49, deposit: '$49 Refundable Deposit' };
     }
   };
 
@@ -77,29 +77,37 @@ export default function ReservationForm({
     });
 
     try {
-      const response = await fetch('/api/reserve', {
+      const response = await fetch('/api/submit-reservation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email,
           fullName,
-          vehicle,
-          score: diagnostic.score,
+          email,
+          vehicleProfile: vehicle,
+          selectedTier: activeTier.name,
+          paymentStatus: mode === 'mode-b' ? activeTier.deposit : 'No payment required today',
+          validationMode: 'Early-access interest only',
+          readinessScore: diagnostic.score,
           classification: diagnostic.classification,
-          region: diagnostic.region,
-          tierId: selectedTierId,
-          tierName: activeTier.name,
-          mode,
+          timestamp: new Date().toISOString()
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit reservation to validation backend.');
+        let serverError = '';
+        try {
+          const errData = await response.json();
+          serverError = errData.error;
+        } catch (e) {}
+        throw new Error(serverError || 'We couldn’t record your early-access interest. Please check your connection and try again.');
       }
 
       const data = await response.json();
+      if (!data.success) {
+        throw new Error(data.error || 'We couldn’t record your early-access interest. Please check your connection and try again.');
+      }
 
       const reservation: Reservation = {
         id: data.reservationId || ('AST-' + Math.floor(Math.random() * 90000 + 10000)),
@@ -123,8 +131,8 @@ export default function ReservationForm({
       });
       onReservationComplete(reservation);
     } catch (err: any) {
-      console.error(err);
-      setErrorMessage(err.message || 'An error occurred while submitting your interest.');
+      console.error("Submission error details:", err);
+      setErrorMessage('We couldn’t record your early-access interest. Please check your connection and try again.');
       setIsSubmitting(false);
     }
   };
@@ -247,7 +255,7 @@ export default function ReservationForm({
                   className="w-full rounded-xl border border-[#CFE0EF] bg-white px-4 py-3 text-sm text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] focus:ring-1 focus:ring-[#0B7CFF]/25 transition-all shadow-xs"
                 />
                 <span className="text-[10px] text-[#7B8CA3] mt-2 block pl-1">
-                  Required to verify CAN bus & OBD port validation parameters.
+                  Helps Astrateq understand vehicle profile fit, compatibility demand, and readiness use cases.
                 </span>
               </div>
             </div>
@@ -261,7 +269,7 @@ export default function ReservationForm({
                   <span className="text-xs font-bold uppercase tracking-wider font-mono">No payment required today</span>
                 </div>
                 <p className="text-xs text-[#475A70] leading-relaxed">
-                  Your early-access interest will be recorded. This is not a purchase and does not guarantee hardware availability, compatibility, or launch timing.
+                  Your early-access interest will be recorded. This is not a purchase and does not guarantee hardware availability, compatibility, pricing, or launch timing.
                 </p>
               </div>
             ) : (
@@ -343,7 +351,7 @@ export default function ReservationForm({
                   className="h-4 w-4 rounded border-[#CFE0EF] bg-white text-[#0B7CFF] focus:ring-0 focus:ring-offset-0 mt-0.5 accent-[#0B7CFF] cursor-pointer"
                 />
                 <label htmlFor="agreeTerms" className="leading-relaxed cursor-pointer select-none">
-                  I understand this is a pre-launch validation signal. Submitting does not guarantee hardware availability, compatibility, launch timing, or future pricing. Deposits (if any) are fully refundable as per the early validation terms.
+                  I understand this is a pre-launch validation signal. Submitting records early-access interest in Astrateq’s software-led driver readiness intelligence program and does not guarantee product availability, hardware availability, compatibility, launch timing, or future pricing.
                 </label>
               </div>
 
@@ -368,22 +376,20 @@ export default function ReservationForm({
                 type="submit"
                 disabled={isSubmitting}
                 id="reservation-submit-btn"
-                className={`w-full rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] py-4 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer ${
-                  isSubmitting ? 'opacity-85 cursor-wait' : 'hover:scale-[1.01] hover:opacity-95 hover:shadow-xl'
+                className={`w-full rounded-xl bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] py-4 px-6 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#0B7CFF]/50 active:scale-[0.99] select-none ${
+                  isSubmitting ? 'opacity-85 cursor-wait' : 'hover:scale-[1.01] hover:opacity-100 hover:shadow-xl'
                 }`}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                    <span>Recording Validation Signal...</span>
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent shrink-0" />
+                    <span className="text-white font-bold">Recording Validation Signal...</span>
                   </>
                 ) : (
                   <>
-                    <ShieldCheck className="h-4 w-4 text-white" />
-                    <span>
-                      {mode === 'mode-b'
-                        ? 'Reserve My Founding Cohort Position'
-                        : 'Record My Early-Access Interest'}
+                    <ShieldCheck className="h-4 w-4 text-white shrink-0" />
+                    <span className="text-white font-bold">
+                      Record My Early-Access Interest
                     </span>
                   </>
                 )}
