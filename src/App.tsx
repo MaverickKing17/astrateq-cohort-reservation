@@ -123,7 +123,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-white" id="root-layout">
+    <div className="min-h-screen bg-[#F5F9FC] text-[#081A33] flex flex-col font-sans selection:bg-[#0B7CFF]/10 selection:text-[#081A33]" id="root-layout">
       
       {/* 1. Sandbox Control Bar */}
       <SimulatorControlBar
@@ -168,7 +168,7 @@ export default function App() {
         />
 
         {/* 7. Reservation / Form Section */}
-        <div ref={reservationFormRef} className="scroll-mt-20 border-b border-slate-900 bg-slate-950">
+        <div ref={reservationFormRef} className="scroll-mt-20 border-b border-[#D7E7F5] bg-white">
           {activeReservation ? (
             <PostSubmissionConfirmation
               reservation={activeReservation}

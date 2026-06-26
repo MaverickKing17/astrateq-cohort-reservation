@@ -6,11 +6,18 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   
-  --color-slate-950: #090e1a;
-  --color-slate-900: #0f172a;
-  --color-slate-800: #1e293b;
-  --color-brand-blue: #0284c7;
-  --color-brand-cyan: #0891b2;
+  --color-page-bg: #F5F9FC;
+  --color-section-alt: #EEF6FB;
+  --color-card-bg: #FFFFFF;
+  --color-card-sec: #F8FBFF;
+  --color-card-border: #D7E7F5;
+  --color-primary-text: #081A33;
+  --color-secondary-text: #475A70;
+  --color-muted-text: #7B8CA3;
+  --color-accent-cyan: #00BFEF;
+  --color-trust-green: #16B981;
+  --color-val-amber: #F59E0B;
+  --color-dark-navy: #071426;
 }
 
 /* Custom animation utility for fade and slide in */
@@ -29,17 +36,17 @@
   animation: fadeInUp 0.4s ease-out forwards;
 }
 
-/* Scroll styling */
+/* Scroll styling for light theme */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #F5F9FC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #CFE0EF;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9;
+  background: #00BFEF;
 }

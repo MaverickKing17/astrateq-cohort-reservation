@@ -57,33 +57,33 @@ export default function FAQSection({ onTriggerEvent }: FAQSectionProps) {
   );
 
   return (
-    <section className="bg-slate-950 py-16 border-b border-slate-900" id="faq">
+    <section className="bg-white py-20 border-b border-[#D7E7F5]" id="faq">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-semibold tracking-wider text-cyan-400 uppercase font-mono">
+          <span className="text-xs font-bold tracking-wider text-[#0B7CFF] uppercase font-mono">
             Information Center
           </span>
-          <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-2.5 font-display text-3xl font-extrabold tracking-tight text-[#081A33] sm:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-sm text-slate-300">
+          <p className="mt-4 text-sm text-[#475A70] leading-relaxed">
             Have questions about Astrateq's Canadian pre-launch program? Find immediate answers on early-access interest, pricing, data, and hardware validation below.
           </p>
         </div>
 
         {/* Live Search bar inside FAQ for premium feel */}
-        <div className="relative max-w-lg mx-auto mb-8">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <Search className="h-4 w-4 text-slate-500" />
+        <div className="relative max-w-lg mx-auto mb-10">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
+            <Search className="h-4 w-4 text-[#7B8CA3]" />
           </div>
           <input
             type="text"
             placeholder="Search pre-launch answers..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-slate-800 bg-slate-900/60 py-3 pl-10 pr-4 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-cyan-500 transition-colors"
+            className="w-full rounded-xl border border-[#CFE0EF] bg-[#F8FBFF] py-3.5 pl-10 pr-4 text-xs text-[#081A33] placeholder-[#7B8CA3] outline-none focus:border-[#0B7CFF] transition-all shadow-xs"
           />
         </div>
 
@@ -95,10 +95,10 @@ export default function FAQSection({ onTriggerEvent }: FAQSectionProps) {
               return (
                 <div
                   key={index}
-                  className={`rounded-xl border transition-all duration-250 ${
+                  className={`rounded-2xl border transition-all duration-200 shadow-xs ${
                     isExpanded
-                      ? 'border-slate-700 bg-slate-900/40'
-                      : 'border-slate-800 bg-slate-900/10 hover:border-slate-700/60'
+                      ? 'border-[#00BFEF] bg-[#F8FBFF] shadow-sm shadow-[#0B7CFF]/5'
+                      : 'border-[#D7E7F5] bg-white hover:border-[#CFE0EF]'
                   }`}
                   id={`faq-item-${index}`}
                 >
@@ -106,16 +106,16 @@ export default function FAQSection({ onTriggerEvent }: FAQSectionProps) {
                     onClick={() => handleToggle(index)}
                     className="flex w-full items-center justify-between px-5 py-4 text-left focus:outline-none"
                   >
-                    <span className="font-display text-xs font-bold text-slate-200 hover:text-white transition-colors">
+                    <span className="font-display text-xs font-bold text-[#081A33] hover:text-[#0B7CFF] transition-colors">
                       {faq.question}
                     </span>
-                    <span className="ml-4 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-950 text-slate-400 border border-slate-800">
+                    <span className="ml-4 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#EEF6FB] text-[#0B7CFF] border border-[#D7E7F5]">
                       {isExpanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
                     </span>
                   </button>
 
                   {isExpanded && (
-                    <div className="px-5 pb-5 pt-1 text-xs text-slate-300 leading-relaxed border-t border-slate-800/60 animate-fade-in-up">
+                    <div className="px-5 pb-5 pt-1 text-xs text-[#475A70] leading-relaxed border-t border-[#D7E7F5]/60 animate-fade-in-up">
                       {faq.answer}
                     </div>
                   )}
@@ -123,7 +123,7 @@ export default function FAQSection({ onTriggerEvent }: FAQSectionProps) {
               );
             })
           ) : (
-            <div className="text-center py-8 text-slate-500 text-xs italic">
+            <div className="text-center py-8 text-[#7B8CA3] text-xs italic">
               No matching questions found. Try search keywords like "purchase", "data" or "hardware".
             </div>
           )}

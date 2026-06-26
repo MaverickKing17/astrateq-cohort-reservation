@@ -35,19 +35,19 @@ export default function TrustSection() {
   ];
 
   return (
-    <section className="bg-slate-900/40 py-16 border-b border-slate-900" id="trust">
+    <section className="bg-[#EEF6FB] py-20 border-b border-[#D7E7F5]" id="trust">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 text-cyan-400 mb-2">
+          <div className="inline-flex items-center space-x-2 text-[#0B7CFF] mb-3">
             <ShieldCheck className="h-4 w-4" />
-            <span className="text-xs font-semibold tracking-wider uppercase font-mono">Security Anchor</span>
+            <span className="text-xs font-bold tracking-wider uppercase font-mono">Security Anchor</span>
           </div>
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-[#081A33] sm:text-4xl">
             Built for trust before rollout
           </h2>
-          <p className="mt-4 text-sm text-slate-300">
+          <p className="mt-4 text-sm text-[#475A70] leading-relaxed">
             Astrateq Gadgets prioritizes transparency, safety, and strict alignment with Canadian security principles. Read how we design privacy into the pre-launch validation program.
           </p>
         </div>
@@ -59,20 +59,20 @@ export default function TrustSection() {
             return (
               <div
                 key={i}
-                className="flex flex-col justify-between rounded-xl border border-slate-800/80 bg-slate-900/50 p-5 transition-all duration-200 hover:bg-slate-900/80 hover:border-slate-700 hover:shadow-lg shadow-md"
+                className="flex flex-col justify-between rounded-2xl border border-[#D7E7F5] bg-white p-5 transition-all duration-200 hover:border-[#00BFEF] hover:shadow-xl hover:shadow-[#0B7CFF]/5 shadow-sm"
               >
                 <div>
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-cyan-400 border border-slate-800 mb-4">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF6FB] text-[#0B7CFF] border border-[#D7E7F5] mb-4">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display font-bold text-slate-100 text-sm leading-snug mb-2">
+                  <h3 className="font-display font-bold text-[#081A33] text-sm leading-snug mb-2">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed mb-3">
+                  <p className="text-xs text-[#475A70] leading-relaxed mb-3">
                     {card.description}
                   </p>
                 </div>
-                <div className="pt-3 border-t border-slate-800/40 mt-4 text-[10px] text-slate-500 leading-normal">
+                <div className="pt-3 border-t border-[#EEF6FB] mt-4 text-[10px] text-[#7B8CA3] leading-normal">
                   {card.detail}
                 </div>
               </div>
