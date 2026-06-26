@@ -22,10 +22,10 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
         
         <div className="mx-auto max-w-3xl relative z-10">
           <h2 className="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl mb-4">
-            Ready to record your founding cohort interest?
+            Shape the Future of Canadian Driver Intelligence
           </h2>
           <p className="mx-auto max-w-xl text-xs text-slate-300 leading-relaxed mb-8">
-            Your readiness result suggests alignment with Astrateq Gadgets’ pre-launch validation priorities. Continue to record your early-access interest for the Canadian founding cohort.
+            Join other forward-looking Canadian drivers in validating a software-led approach to driver readiness. No payment is required to record your early-access interest today.
           </p>
 
           <button

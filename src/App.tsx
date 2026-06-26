@@ -6,6 +6,7 @@ import SimulatorControlBar from './components/SimulatorControlBar';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import WhySeeingThis from './components/WhySeeingThis';
+import WhatAstrateqIsValidatingFirst from './components/WhatAstrateqIsValidatingFirst';
 import CohortBenefits from './components/CohortBenefits';
 import TierSelection from './components/TierSelection';
 import ReservationForm from './components/ReservationForm';
@@ -174,6 +175,9 @@ export default function App() {
 
         {/* 4. Why seeing this page */}
         <WhySeeingThis />
+
+        {/* 4.5 What Astrateq is validating first */}
+        <WhatAstrateqIsValidatingFirst />
 
         {/* 5. Cohort Benefits */}
         <CohortBenefits />

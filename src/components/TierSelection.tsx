@@ -22,7 +22,7 @@ export default function TierSelection({
       id: 'tier-1',
       name: 'Readiness Access',
       tagline: 'Pre-launch Validation Pathway',
-      bestFor: 'Drivers who want updates and readiness insights before committing to deeper early-access interest.',
+      bestFor: 'Drivers who want readiness updates and software-led insights before deeper early-access interest.',
       includes: [
         'Diagnostic result record',
         'Pre-launch readiness updates',
@@ -39,9 +39,9 @@ export default function TierSelection({
     },
     {
       id: 'tier-2',
-      name: 'Guardian Pro Interest',
+      name: 'Guardian Readiness Pro',
       tagline: 'Founding Cohort Choice',
-      bestFor: 'Drivers interested in future Astrateq hardware plus privacy-first readiness intelligence.',
+      bestFor: 'Drivers interested in deeper readiness intelligence, priority compatibility review, and future optional hardware validation.',
       includes: [
         'Priority compatibility review',
         'Founding member pricing consideration',
@@ -59,9 +59,9 @@ export default function TierSelection({
     },
     {
       id: 'tier-3',
-      name: 'Founder Priority Allocation',
+      name: 'Founder Priority Review',
       tagline: 'Maximum Priority Signal',
-      bestFor: 'High-intent users who want the strongest early-access consideration if the pilot moves forward.',
+      bestFor: 'High-intent users who want strongest early-access review if the validation program moves forward.',
       includes: [
         'Highest early-access interest signal',
         'Priority validation review',
@@ -137,15 +137,15 @@ export default function TierSelection({
             <div className="flex items-start space-x-2.5 p-2 rounded-lg bg-[#F8FBFF]">
               <div className="w-2 h-2 rounded-full bg-[#00BFEF] mt-1.5 shrink-0" />
               <div>
-                <strong className="text-[#081A33] block">Guardian Pro Interest:</strong>
-                <span className="text-[#475A70]">Best for drivers interested in future hardware and readiness intelligence.</span>
+                <strong className="text-[#081A33] block">Guardian Readiness Pro:</strong>
+                <span className="text-[#475A70]">Best for drivers interested in deeper readiness intelligence, priority compatibility review, and future optional hardware validation.</span>
               </div>
             </div>
             <div className="flex items-start space-x-2.5 p-2 rounded-lg bg-[#F8FBFF]">
               <div className="w-2 h-2 rounded-full bg-[#0B7CFF] mt-1.5 shrink-0" />
               <div>
-                <strong className="text-[#081A33] block">Founder Priority Allocation:</strong>
-                <span className="text-[#475A70]">Best for high-intent users who want strongest early-access consideration.</span>
+                <strong className="text-[#081A33] block">Founder Priority Review:</strong>
+                <span className="text-[#475A70]">Best for high-intent users who want strongest early-access review if the validation program moves forward.</span>
               </div>
             </div>
           </div>

@@ -49,7 +49,7 @@ export default function ReservationForm({
     onTriggerEvent('reservation_started', { field, selectedTierId, mode });
   };
 
-  const handleFormSubmit = (e: FormEvent) => {
+  const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
 
@@ -76,10 +76,33 @@ export default function ReservationForm({
       price: mode === 'mode-b' ? activeTier.price : 0 
     });
 
-    // Simulate pre-launch submission delay
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/reserve', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          fullName,
+          vehicle,
+          score: diagnostic.score,
+          classification: diagnostic.classification,
+          region: diagnostic.region,
+          tierId: selectedTierId,
+          tierName: activeTier.name,
+          mode,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit reservation to validation backend.');
+      }
+
+      const data = await response.json();
+
       const reservation: Reservation = {
-        id: 'AST-' + Math.floor(Math.random() * 90000 + 10000),
+        id: data.reservationId || ('AST-' + Math.floor(Math.random() * 90000 + 10000)),
         email,
         tierId: selectedTierId,
         score: diagnostic.score,
@@ -95,10 +118,15 @@ export default function ReservationForm({
         id: reservation.id, 
         email, 
         tier: activeTier.name, 
-        mode 
+        mode,
+        emailSent: data.emailSent
       });
       onReservationComplete(reservation);
-    }, 1500);
+    } catch (err: any) {
+      console.error(err);
+      setErrorMessage(err.message || 'An error occurred while submitting your interest.');
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -119,42 +147,43 @@ export default function ReservationForm({
               Cohort Validation Portal
             </span>
             <h2 className="mt-5 font-display text-2xl font-bold text-[#081A33] sm:text-3xl">
-              Reserve Your Founding Cohort Position
+              Record Your Early-Access Interest
             </h2>
             <p className="mt-3 text-xs text-[#475A70] max-w-lg mx-auto leading-relaxed">
-              You are recording early-access interest in Astrateq Gadgets’ Canadian pre-launch validation program. This helps validate demand before future hardware allocation, compatibility review, and rollout decisions.
+              You are recording interest in Astrateq Gadgets’ Canadian pre-launch validation program. Your submission helps validate demand for software-led driver readiness intelligence and informs future compatibility, feature, and hardware direction.
             </p>
           </div>
 
           <form onSubmit={handleFormSubmit} className="space-y-6" id="reservation-html-form">
             
             {/* Dynamic Active Selection Indicator */}
-            <div className="rounded-2xl bg-[#F3F9FF] border-2 border-[#00BFEF]/40 p-6 shadow-md relative overflow-hidden flex items-start gap-4">
-              <div className="p-2.5 rounded-xl bg-[#E2F5FF] text-[#00AEEF] border border-[#BFE7FA] shrink-0 mt-1">
-                <ShieldCheck className="h-6 w-6 stroke-[2]" />
-              </div>
-              <div className="flex-1 space-y-3">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#00BFEF]/10 pb-3">
-                  <div>
-                    <span className="text-[10px] text-[#00AEEF] font-mono uppercase block font-extrabold tracking-wider">Active Selection</span>
-                    <h3 className="font-display font-extrabold text-lg text-[#081A33]">{activeTier.name}</h3>
-                  </div>
-                  <div className="flex flex-col sm:items-end">
-                    <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Status & Terms</span>
-                    <span className="font-mono text-sm font-black text-[#0B7CFF]">
-                      {mode === 'mode-b' ? activeTier.deposit : '$0 Today'}
-                    </span>
-                  </div>
+            <div className="rounded-2xl bg-[#F3F9FF] border-2 border-[#00BFEF]/40 p-6 shadow-md relative overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-b border-[#00BFEF]/15 pb-4">
+                <div>
+                  <span className="text-[10px] text-[#00AEEF] font-mono uppercase block font-extrabold tracking-wider">Selected Pathway</span>
+                  <h3 className="font-display font-extrabold text-sm text-[#081A33] mt-0.5">{activeTier.name}</h3>
                 </div>
-                
-                <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-[#475A70]">
-                  <div className="flex items-center space-x-1.5 bg-[#EAFBF4] text-[#047857] px-3 py-1 rounded-full border border-emerald-100/80 font-bold text-[10px] shadow-2xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#16B981] animate-pulse" />
-                    <span>{mode === 'mode-b' ? (activeTier.price === 0 ? 'No payment required today' : '100% Refundable Deposit') : 'No payment required today'}</span>
-                  </div>
-                  <span className="text-[10px] text-[#7B8CA3] font-bold uppercase tracking-wider bg-white px-2 py-0.5 rounded border border-[#D7E7F5]/80 font-mono">
-                    Pre-launch Validation
+                <div>
+                  <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Payment Status</span>
+                  <span className="font-mono text-sm font-black text-[#0B7CFF] mt-0.5 block">
+                    {mode === 'mode-b' ? activeTier.deposit : 'No payment required today'}
                   </span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-[#7B8CA3] font-mono uppercase block font-bold tracking-wider">Validation Mode</span>
+                  <span className="font-mono text-xs font-bold text-[#081A33] mt-0.5 block">
+                    Early-access interest only
+                  </span>
+                </div>
+              </div>
+              
+              <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center space-x-1.5 text-xs text-[#081A33] font-bold">
+                  <Lock className="h-3.5 w-3.5 text-[#00BFEF] shrink-0" />
+                  <span>Secure validation submission</span>
+                </div>
+                <div className="text-[10px] text-[#7B8CA3] font-bold uppercase tracking-wider font-mono bg-white px-2.5 py-1 rounded border border-[#D7E7F5]">
+                  No payment required · Not a purchase · Early-access interest only
                 </div>
               </div>
             </div>

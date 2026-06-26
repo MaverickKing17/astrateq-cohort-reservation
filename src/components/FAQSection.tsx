@@ -11,16 +11,16 @@ export default function FAQSection({ onTriggerEvent }: FAQSectionProps) {
 
   const faqs = [
     {
-      question: 'What am I reserving?',
-      answer: 'You are recording early-access interest in the Astrateq Gadgets founding cohort. This helps validate demand, compatibility priorities, and rollout planning before future product availability decisions.',
+      question: 'What is Astrateq Gadgets actually validating right now?',
+      answer: 'We are validating early driver interest and demand signals for a privacy-first, software-led driver readiness intelligence experience designed for Canadian road conditions. Your selection helps us measure interest before making future hardware or regional rollout decisions.',
     },
     {
-      question: 'Is this a purchase?',
-      answer: 'No. This is not a final product purchase. If the page is in no-payment mode, no payment is required today. If a refundable deposit mode is enabled later, the deposit terms will be clearly stated before submission.',
+      question: 'Is this a guaranteed purchase or hardware preorder?',
+      answer: 'No. Submitting your early-access interest is a non-binding planning signal only. Astrateq Gadgets is in a pre-launch validation phase. We do not guarantee product releases, final pricing, hardware specs, vehicle compatibility, or delivery dates.',
     },
     {
-      question: 'Does this guarantee I will receive hardware?',
-      answer: 'No. Completing a reservation does not guarantee hardware availability, compatibility, delivery, or launch timing. Astrateq Gadgets is currently in pre-launch validation.',
+      question: 'Will I receive an OBD-II scanner or dashcam soon?',
+      answer: 'No. Hardware concepts, including driver-awareness modules or OBD-II adapters, are under speculative evaluation. There are no active manufacturing lines, certified designs, or immediate shipping timelines. We are validating software-led readiness experiences first.',
     },
     {
       question: 'Why was I invited here?',

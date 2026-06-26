@@ -21,7 +21,7 @@ export default function HeroSection({
     if (s >= 90) {
       return {
         scoreLabel: 'Exceptional Readiness',
-        recommendedTier: 'Founder Priority Allocation',
+        recommendedTier: 'Founder Priority Review',
         confidence: 'Very High',
         riskProfile: 'Low-to-Moderate Seasonal Risk',
         badgeColor: 'bg-emerald-50 text-[#16B981] border border-emerald-100',
@@ -30,7 +30,7 @@ export default function HeroSection({
     } else if (s >= 75) {
       return {
         scoreLabel: 'High Readiness',
-        recommendedTier: 'Guardian Pro Interest',
+        recommendedTier: 'Guardian Readiness Pro',
         confidence: 'High',
         riskProfile: 'Highway / Seasonal Considerations',
         badgeColor: 'bg-[#EEF6FB] text-[#0B7CFF] border border-[#D7E7F5]',
@@ -99,7 +99,7 @@ export default function HeroSection({
 
             {/* Subheadline */}
             <p className="text-sm leading-relaxed text-[#475A70] mb-8 max-w-xl">
-              Your readiness result suggests alignment with Astrateq Gadgets’ Canadian pre-launch validation priorities. Continue to record your early-access interest and help shape privacy-first driver readiness intelligence for Canadian roads.
+              Your readiness result suggests alignment with Astrateq Gadgets’ Canadian pre-launch validation priorities. Record your early-access interest in a software-led driver readiness intelligence experience built for Canadian roads.
             </p>
 
             {/* Core Funnel Form Link */}
@@ -117,7 +117,7 @@ export default function HeroSection({
             {/* Trust line under CTA */}
             <div className="border-l-2 border-[#00BFEF] pl-4 py-0.5">
               <p className="text-xs text-[#7B8CA3] font-medium leading-relaxed">
-                No payment required during validation · Early-access interest only · Canadian driver cohort
+                No payment required during validation · Not a final product purchase · Canadian driver cohort
               </p>
             </div>
           </div>
