@@ -1,0 +1,8 @@
+{
+  "name": "Astrateq Gadgets",
+  "description": "Privacy-first driver readiness intelligence pre-launch validation and founding cohort reservation funnel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
