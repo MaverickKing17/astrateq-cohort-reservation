@@ -220,7 +220,7 @@ export default function ReservationForm({
                 <input
                   type="email"
                   required
-                  placeholder="e.g. liam@gmail.ca"
+                  placeholder="e.g. liam@gmail.com"
                   value={email}
                   onFocus={() => handleFocus('email')}
                   onChange={(e) => {

@@ -98,7 +98,7 @@ export default function Footer({ mode, onScrollToForm, onTriggerEvent }: FooterP
               <ul className="space-y-2 text-[11px] text-[#475A70]">
                 <li className="flex items-center space-x-2">
                   <Mail className="h-3.5 w-3.5 text-[#0B7CFF]" />
-                  <span className="hover:text-[#0B7CFF] hover:underline transition-all cursor-pointer">founding-cohort@astrateq.ca</span>
+                  <span className="hover:text-[#0B7CFF] hover:underline transition-all cursor-pointer">Astrateq Cohort Updates</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <Phone className="h-3.5 w-3.5 text-[#0B7CFF]" />

@@ -17,9 +17,9 @@ export default function PostSubmissionConfirmation({
   const getTierName = () => {
     switch (tierId) {
       case 'tier-1': return 'Readiness Access';
-      case 'tier-2': return 'Guardian Pro Interest';
-      case 'tier-3': return 'Founder Priority Allocation';
-      default: return 'Guardian Pro Interest';
+      case 'tier-2': return 'Guardian Readiness Pro';
+      case 'tier-3': return 'Founder Priority Review';
+      default: return 'Guardian Readiness Pro';
     }
   };
 

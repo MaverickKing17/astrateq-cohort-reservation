@@ -34,6 +34,7 @@ app.post("/api/reserve", async (req, res) => {
         await resend.emails.send({
           from: "Astrateq Gadgets <onboarding@resend.dev>",
           to: email,
+          replyTo: "reservations@astrateqgadgets.com",
           subject: "Astrateq Founding Cohort Interest Recorded",
           html: `
 <!DOCTYPE html>
@@ -98,7 +99,7 @@ app.post("/api/reserve", async (req, res) => {
 
       <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #CFE0EF; font-size: 12px; color: #7B8CA3; text-align: center; line-height: 1.5;">
         <p style="margin: 0;">This email serves as validation of your early-access interest only. No product purchase or formal agreement has been established at this stage.</p>
-        <p style="margin: 8px 0 0 0;">Astrateq Gadgets · Privacy-first driver intelligence for Canadian roads</p>
+        <p style="margin: 8px 0 0 0;">Astrateq Gadgets · astrateqgadgets.com · Privacy-first driver intelligence for Canadian roads</p>
       </div>
     </div>
   </div>
