@@ -93,14 +93,13 @@ export default function HeroSection({
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-4xl font-bold tracking-tight text-[#081A33] sm:text-5xl leading-tight mb-4">
-              Your Founding Cohort <br/>
-              <span className="bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7] bg-clip-text text-transparent">Pathway Is Open</span>
+            <h1 className="font-display text-4xl font-black tracking-tight text-[#081A33] sm:text-5xl leading-tight mb-4">
+              Get your free Canadian Vehicle Readiness Score in 60 seconds.
             </h1>
 
             {/* Subheadline */}
-            <p className="text-sm leading-relaxed text-[#475A70] mb-8 max-w-xl">
-              Your readiness result suggests alignment with Astrateq Gadgets’ Canadian pre-launch validation priorities. Record your early-access interest in a software-led driver readiness intelligence experience built for Canadian roads.
+            <p className="text-sm leading-relaxed text-[#475A70] mb-8 max-w-xl animate-fade-in-up">
+              See how your vehicle profile, driving context, and privacy preferences map to Canadian road conditions through a software-led readiness intelligence system.
             </p>
 
             {/* Core Funnel Form Link */}
@@ -125,10 +124,10 @@ export default function HeroSection({
 
           {/* Center Column: Diagnostic Carryover Summary Card */}
           <div className="lg:col-span-4 flex flex-col justify-stretch" id="hero-diagnostic-card">
-            <div className="flex flex-col justify-between h-full bg-white card-premium-gradient border border-[#A9D8F5] rounded-3xl p-7 shadow-[0_18px_50px_rgba(8,26,51,0.10)] relative overflow-hidden group transition-all duration-300">
+            <div className="flex flex-col justify-between h-full bg-white card-premium-gradient border-2 border-[#00BFEF] ring-1 ring-[#0B7CFF]/40 rounded-3xl p-7 shadow-[0_24px_55px_rgba(11,124,255,0.18)] relative overflow-hidden group transition-all duration-300 scale-[1.03] hover:scale-[1.05]">
               
               {/* Decorative top accent line for premium look */}
-              <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#0B7CFF] to-[#13C8F7]" />
+              <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#00BFEF] to-[#0B7CFF]" />
               
               {/* Header */}
               <div>
@@ -143,7 +142,7 @@ export default function HeroSection({
                     {attributes.confidence} Confidence
                   </span>
                 </div>
-
+              
                 {/* Score Circular Visualizer */}
                 <div className="flex items-center justify-center py-6 border border-[#CFE0EF] mb-6 bg-gradient-to-r from-[#F8FBFF] to-[#F1F7FC] rounded-2xl shadow-xs">
                   <div className="relative flex items-center justify-center">
@@ -192,11 +191,11 @@ export default function HeroSection({
                     <p className="text-2xl font-mono font-bold text-[#081A33]">{score}/100</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[10px] text-[#7B8CA3] uppercase font-bold tracking-wider">Recommended Cohort</p>
+                    <p className="text-[10px] text-[#7B8CA3] uppercase font-bold tracking-wider">Cohort Path</p>
                     <p className="text-xs font-bold text-[#081A33] leading-tight mt-0.5">{attributes.recommendedTier}</p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[10px] text-[#7B8CA3] uppercase font-bold tracking-wider">Risk Profile</p>
+                    <p className="text-[10px] text-[#7B8CA3] uppercase font-bold tracking-wider">Driving Context Risk</p>
                     <p className="text-xs font-semibold text-[#475A70] leading-tight mt-0.5">{attributes.riskProfile}</p>
                   </div>
                   <div className="space-y-1">
@@ -209,14 +208,14 @@ export default function HeroSection({
               {/* Supporting Copy */}
               <div className="mt-auto pt-4 border-t border-[#D7E7F5]">
                 <p className="text-[10px] leading-relaxed text-[#475A70]">
-                  GTA testing suggests compatible hardware setup for {vehicleType || 'standard vehicles'}. No direct cost for recording cohort placement.
+                  Analysis is based on winter readiness parameters for {vehicleType || 'standard vehicles'}. No direct cost or tracking required to join the validation program.
                 </p>
                 
                 {/* Visual Safeguard Badges */}
                 <div className="grid grid-cols-3 gap-1.5 mt-3 text-[8px] font-bold text-[#7B8CA3] tracking-tight text-center">
-                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">No Guaranteed Acceptance</div>
-                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">No Compatibility Guarantee</div>
-                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">Hardware Not Guaranteed</div>
+                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">No Hardware Required</div>
+                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">Privacy-First Design</div>
+                  <div className="px-1 py-1.5 rounded-lg bg-[#F8FBFF] border border-[#CFE0EF]">Validation Program Only</div>
                 </div>
               </div>
             </div>
@@ -250,7 +249,7 @@ export default function HeroSection({
                   <span className="text-[10px] text-[#00BFEF] font-bold tracking-wider">ACTIVE</span>
                 </div>
                 <p className="text-[10px] text-[#475A70] mt-1.5 leading-relaxed">
-                  Testing vehicle CAN network signals in winter conditions to validate localized telemetry algorithms.
+                  Analyzing driver readiness parameters in winter conditions to validate localized software-led intelligence models.
                 </p>
               </div>
             </div>

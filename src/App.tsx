@@ -14,6 +14,9 @@ import PostSubmissionConfirmation from './components/PostSubmissionConfirmation'
 import TrustSection from './components/TrustSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
+import WhatYourReadinessScoreMeans from './components/WhatYourReadinessScoreMeans';
+import WhyAstrateqIsBuildingThis from './components/WhyAstrateqIsBuildingThis';
+import WhatHappensAfterYouSubmit from './components/WhatHappensAfterYouSubmit';
 
 export default function App() {
   // Sandbox States
@@ -190,6 +193,15 @@ export default function App() {
           onSelectTier={setSelectedTierId}
           onTriggerEvent={triggerEvent}
         />
+
+        {/* 6.1 What your readiness score means */}
+        <WhatYourReadinessScoreMeans />
+
+        {/* 6.2 Why Astrateq is building this */}
+        <WhyAstrateqIsBuildingThis />
+
+        {/* 6.3 What happens after you submit */}
+        <WhatHappensAfterYouSubmit />
 
         {/* 7. Reservation / Form Section */}
         <div ref={reservationFormRef} className="scroll-mt-20 border-b border-[#D7E7F5] bg-white">

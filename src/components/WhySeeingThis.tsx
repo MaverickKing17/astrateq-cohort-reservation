@@ -16,7 +16,7 @@ export default function WhySeeingThis() {
             Why you are seeing this page
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-[#475A70]">
-            You completed the Astrateq Vehicle Readiness diagnostic and received a readiness classification. This page lets you record early-access interest for the founding cohort and helps Astrateq Gadgets understand which Canadian driver profiles, vehicle types, and readiness needs should be prioritized before future rollout decisions.
+            You completed the Astrateq Driver Readiness assessment and received a readiness score and cohort signal. This page lets you record early-access interest for the founding cohort pathway, helping Astrateq Gadgets understand which Canadian driver profiles, vehicle types, and readiness needs should be prioritized before future product direction decisions are made.
           </p>
         </div>
 
@@ -56,11 +56,11 @@ export default function WhySeeingThis() {
               Inform Compatibility
             </h3>
             <p className="text-xs text-[#475A70] leading-relaxed mb-4">
-              Your vehicle type and OBD architecture help inform specific model compatibility and validation priorities.
+              Your vehicle type and driving context parameters help inform compatibility confidence and validation priorities.
             </p>
             <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#00BFEF] font-bold text-[11px]">
               <Check className="h-3.5 w-3.5 shrink-0 text-[#00BFEF]" />
-              <span>Informs vehicle priorities</span>
+              <span>Informs compatibility</span>
             </div>
           </div>
 
@@ -77,11 +77,11 @@ export default function WhySeeingThis() {
               Guide Rollout Planning
             </h3>
             <p className="text-xs text-[#475A70] leading-relaxed mb-4">
-              Your reservation signal acts as a critical planning anchor guiding future hardware and logistics rollouts.
+              Your cohort path selection acts as a critical planning anchor guiding future product direction and software program rollouts.
             </p>
             <div className="mt-auto pt-4 flex items-center space-x-1.5 text-[#00BFEF] font-bold text-[11px]">
               <Check className="h-3.5 w-3.5 shrink-0 text-[#00BFEF]" />
-              <span>Guides rollout planning</span>
+              <span>Guides software planning</span>
             </div>
           </div>
 

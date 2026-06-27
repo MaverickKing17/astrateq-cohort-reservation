@@ -16,7 +16,7 @@ export default function WhatAstrateqIsValidatingFirst() {
             What Astrateq is validating first
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-[#475A70]">
-            Astrateq Gadgets is beginning with a software-led readiness intelligence experience before making future hardware rollout decisions. Your diagnostic result and cohort selection help validate what Canadian drivers actually want.
+            Astrateq Gadgets is beginning with a software-led readiness intelligence experience before making future product decisions. Your readiness score and cohort pathway selection help validate what Canadian drivers actually want.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export default function WhatAstrateqIsValidatingFirst() {
             </h3>
             
             <p className="text-xs text-[#475A70] leading-relaxed mb-6">
-              Your diagnostic result and cohort pathway help identify which vehicle types, driving patterns, and Canadian road conditions should be prioritized.
+              Your readiness score and cohort pathway help identify which vehicle types, driving patterns, and Canadian road conditions should be prioritized.
             </p>
             
             <div className="mt-auto pt-4 border-t border-[#CFE0EF]/60 w-full flex items-center space-x-1.5 text-[#00AEEF] font-bold text-[10px] uppercase tracking-wider font-mono">
@@ -70,7 +70,7 @@ export default function WhatAstrateqIsValidatingFirst() {
             </div>
           </div>
 
-          {/* Card 3: Future hardware direction */}
+          {/* Card 3: Future integration pathway */}
           <div className="rounded-3xl border border-[#CFE0EF] bg-[#F8FBFF] p-7 flex flex-col items-start text-left shadow-[0_10px_28px_rgba(8,26,51,0.05)] hover:shadow-[0_18px_45px_rgba(8,26,51,0.10)] hover:translate-y-[-2px] hover:border-[#A9D8F5] transition-all duration-300 relative overflow-hidden group">
             {/* Subtle top accent line */}
             <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#0B7CFF]" />
@@ -81,11 +81,11 @@ export default function WhatAstrateqIsValidatingFirst() {
             </div>
             
             <h3 className="font-display font-extrabold text-[#081A33] text-base mb-3">
-              Future hardware direction
+              Future integration pathway
             </h3>
             
             <p className="text-xs text-[#475A70] leading-relaxed mb-6">
-              Optional hardware concepts may include an OBD-II intelligence adapter and driver-awareness module. Availability, compatibility, pricing, and timing depend on validation results.
+              Astrateq focuses entirely on software-led driver intelligence models. Future updates may evaluate auxiliary integration pathways. Program timing and direction depend on software validation feedback.
             </p>
             
             <div className="mt-auto pt-4 border-t border-[#CFE0EF]/60 w-full flex items-center space-x-1.5 text-[#0B7CFF] font-bold text-[10px] uppercase tracking-wider font-mono">
